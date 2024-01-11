@@ -152,6 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
 class GeneratorPage extends StatelessWidget {
   const GeneratorPage({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     final appState = context.watch<MyAppState>();
@@ -168,6 +169,7 @@ class GeneratorPage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          const Text('Top movies'),
           BigCard(pair: pair),
           const SizedBox(height: 10),
           Row(

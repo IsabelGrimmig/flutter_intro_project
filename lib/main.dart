@@ -14,8 +14,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => HomeViewModel,
+    return ChangeNotifierProvider<HomeViewModel>(
+      create: (context) => HomeViewModel(),
       child: MaterialApp(
         title: 'Namer App',
         theme: ThemeData(

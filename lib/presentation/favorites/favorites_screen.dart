@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
 // ignore: unused_import
-import 'home_view_model.dart';
+import 'favorites_view_model.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class FavoriteScreen extends StatelessWidget {
+  const FavoriteScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Monta movie'),
+        title: const Text('Favorites'),
         // Her kan der tilføjes yderligere appbar-konfiguration, f.eks. handlinger (actions).
-
       ),
-      body: const Row(
-        children: [
-        // Her kan tilføjes andre widgets, der skal vises på hjemmeskærmen.
-        ],
+      body: ListView(
+        // Her kan der tilføjes yderligere widgets til visning af favoritter.
       ),
     );
   }

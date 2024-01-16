@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider<HomeViewModel>(
       create: (context) => HomeViewModel(),
       child: MaterialApp(
-        title: 'Namer App',
+        title: 'Intro App',
         theme: ThemeData(
           useMaterial3: true,
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.pink),

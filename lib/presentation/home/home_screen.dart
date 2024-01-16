@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-// ignore: unused_import
-import 'home_view_model.dart';
+//import 'home_view_model.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -15,9 +14,10 @@ class HomeScreen extends StatelessWidget {
       ),
       body: const Row(
         children: [
-        // Her kan tilføjes andre widgets, der skal vises på hjemmeskærmen.
+          
         ],
-      ),
-    );
+    ),
+      
+      );
   }
 }

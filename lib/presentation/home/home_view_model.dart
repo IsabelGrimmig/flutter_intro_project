@@ -1,5 +1,9 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+
+import '../bottom_navigation_bar.dart';
+
 
 class HomeViewModel extends ChangeNotifier {
   WordPair current = WordPair.random();
@@ -18,5 +22,9 @@ class HomeViewModel extends ChangeNotifier {
       favorites.add(current);
     }
     notifyListeners();
+  }
+  Widget buildBottomNavigationBar(BuildContext context){
+    return const BottomNavigationBarWidget();
+
   }
 }

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 // ignore: unused_import
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'home_screen.dart';
+import 'presentation/home/home_screen.dart';
+import 'presentation/home/home_view_model.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,15 +15,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => MyAppState(),
+      create: (context) => HomeViewModel,
       child: MaterialApp(
         title: 'Namer App',
         theme: ThemeData(
           useMaterial3: true,
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.pink),
         ),
-        home: HomeScreen(),
+        home: const HomeScreen(),
       ),
     );
   }
 }
+
+

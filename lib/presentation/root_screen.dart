@@ -1,38 +1,24 @@
 import 'package:flutter/material.dart';
 
-class BottomNavigationBarApp extends StatelessWidget {
-  const BottomNavigationBarApp({super.key});
+import 'favorites/favorites_screen.dart';
+import 'home/home_screen.dart';
+
+class RootScreen extends StatefulWidget {
+  const RootScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: BottomNavigationBarWidget(),
-    );
-  }
+  State<RootScreen> createState() =>
+      _RootScreenState();
 }
 
-class BottomNavigationBarWidget extends StatefulWidget {
-  const BottomNavigationBarWidget({super.key});
-
-  @override
-  State<BottomNavigationBarWidget> createState() =>
-      _BottomNavigationBarWidgetState();
-}
-
-class _BottomNavigationBarWidgetState
-    extends State<BottomNavigationBarWidget> {
+class _RootScreenState
+    extends State<RootScreen> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Favorites',
-      style: optionStyle,
-    ),
+    HomeScreen(),
+    FavoriteScreen(),
     
   ];
 
@@ -45,9 +31,7 @@ class _BottomNavigationBarWidgetState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('BottomNavigationBar Sample'),
-      ),
+
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),

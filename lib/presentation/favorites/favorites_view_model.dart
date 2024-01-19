@@ -1,16 +1,7 @@
 import 'package:flutter/material.dart';
-import '../bottom_navigation_bar.dart';
+import '../root_screen.dart';
 
 
-class FavoriteViewModel extends StatelessWidget {
-  const FavoriteViewModel({super.key});
+class FavoriteViewModel extends ChangeNotifier {
 
-  @override
-  Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        BottomNavigationBarApp(),
-      ],
-    );
-  }
 }

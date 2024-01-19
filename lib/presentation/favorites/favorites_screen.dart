@@ -13,7 +13,7 @@ class FavoriteScreen extends StatelessWidget {
         // Her kan der tilføjes yderligere appbar-konfiguration, f.eks. handlinger (actions).
       ),
       body: ListView(
-        // Her kan der tilføjes yderligere widgets til visning af favoritter.
+        children: [Text('Dine favoritter')],
       ),
     );
   }

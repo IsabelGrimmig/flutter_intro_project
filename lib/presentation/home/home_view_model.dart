@@ -1,9 +1,6 @@
 import 'package:english_words/english_words.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import '../../domain/models/movie.dart';
-import '../../domain/models/movie_preview.dart';
 import '../../domain/use cases/get_trending_movies_use_case.dart';
 import '../base_view_model.dart';
 import '../root_screen.dart';

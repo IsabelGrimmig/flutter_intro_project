@@ -1,8 +1,7 @@
 
 class Movie {
-  const Movie({required this.title, /*this.id,this.body,*/});
+  const Movie({required this.title, });
 
   final String title;
-/*final int id
-final String body */
+
 }

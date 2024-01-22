@@ -31,13 +31,11 @@ class _RootScreenState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('BottomNavigationBar Sample'),
-      ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Color(0xFFF4F2F1),
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -50,7 +48,7 @@ class _RootScreenState
           
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: const Color.fromARGB(255, 175, 26, 76),
+        selectedItemColor: const Color(0xFFE9265E),
         onTap: _onItemTapped,
       ),
     );

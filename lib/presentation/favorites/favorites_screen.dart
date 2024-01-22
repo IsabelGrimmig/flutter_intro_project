@@ -9,11 +9,12 @@ class FavoriteScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 80,
         title: const Text('Favorites'),
-        // Her kan der tilføjes yderligere appbar-konfiguration, f.eks. handlinger (actions).
+        backgroundColor: Color(0xFFFFA8A0),
       ),
       body: ListView(
-        children: [Text('Dine favoritter')],
+        children: const [Text('Dine favoritter')],
       ),
     );
   }

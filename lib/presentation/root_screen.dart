@@ -18,7 +18,7 @@ class _RootScreenState
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
-    FavoriteScreen(),
+    FavoriteScreen()
     
   ];
 
@@ -31,7 +31,9 @@ class _RootScreenState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+      appBar: AppBar(
+        title: const Text('BottomNavigationBar Sample'),
+      ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),

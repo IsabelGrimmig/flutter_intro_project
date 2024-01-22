@@ -1,12 +1,12 @@
-import '../../domain/models/movie.dart';
+import '../../domain/models/movie_preview.dart';
 
 class HomeUIState {
 
   const HomeUIState({this.movies});
-  final List<Movie>? movies;
+  final List<MoviePreview>? movies;
 
   HomeUIState copyWith({
-    List<Movie>? movies,
+    List<MoviePreview>? movies,
   }) =>
       HomeUIState(movies: movies ?? this.movies);
 }

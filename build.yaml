@@ -1,0 +1,38 @@
+targets:
+  $default:
+    sources:
+      - pubspec.*
+      - lib/**
+      - test/**.dart
+      - $package$
+    builders:
+      source_gen|combining_builder:
+        generate_for:
+          - lib/**.dart
+          - test/**.dart
+        options:
+          build_extensions:
+            'lib/{{path}}/{{file}}.dart': 'lib//generated/{{path}}/{{file}}.g.dart'
+            'test/{{path}}/{{file}}.dart': 'test//generated/{{path}}/{{file}}.g.dart'
+      freezed:
+        options:
+          build_extensions:
+            'lib/{{path}}/{{file}}.dart': 'lib/generated/{{path}}/{{file}}.freezed.dart'
+            'test/{{path}}/{{file}}.dart': 'test/generated/{{path}}/{{file}}.freezed.dart'
+          field_rename: snake
+      json_serializable:
+        options:
+          field_rename: snake
+      
+global_options:
+  freezed:
+    runs_before:
+      - json_serializable
+  json_serializable:
+    runs_before:
+      - retrofit_generator
+
+
+
+
+

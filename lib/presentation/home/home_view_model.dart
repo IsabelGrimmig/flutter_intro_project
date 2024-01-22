@@ -3,6 +3,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../domain/models/movie.dart';
+import '../../domain/models/movie_preview.dart';
+import '../../domain/use cases/get_trending_movies_use_case.dart';
 import '../base_view_model.dart';
 import '../root_screen.dart';
 import 'home_ui_state.dart';
@@ -10,10 +12,16 @@ import 'home_ui_state.dart';
 
 class HomeViewModel extends BaseViewModel<HomeUIState> {
   HomeViewModel():super(const HomeUIState()){
-    setState(state.copyWith(movies: [Movie(title: 'Mandag'), Movie(title: 'Tirsdag'), Movie(title: 'Onsdag'), Movie(title: 'Torsdag'), Movie(title: 'Fredag')]));
+    initialize();
   }
 //add movies metode til mit ui
 
+Future<void> initialize() async {
+  final getTrendingMoviesUseCase = GetTrendingMoviesUseCase();
+  final popularMovies =  await getTrendingMoviesUseCase.call();
+  print(popularMovies);
+  setState(state.copyWith(movies: popularMovies));
+}
   WordPair current = WordPair.random();
 
   void getNext() {

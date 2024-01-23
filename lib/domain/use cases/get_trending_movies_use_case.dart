@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import '../../data/sources/movie_api.dart';
 import '../../main.dart';
-import '../models/movie_preview.dart';
+import '../models/movies_list_response.dart';
 
 class GetTrendingMoviesUseCase {
   final MovieApi _api = getIt.get<MovieApi>();
-  Future<List<MoviePreview>> call() async{
+  Future<MoviesListResponse?> call() async {
     try {
       final movies = await _api.getPopularMovie();
       return movies;
-    } catch(error){
-      debugPrint(error.toString());
-      return [];
+    } catch (error, stackTrace) {
+      debugPrint(stackTrace.toString());
+      return null;
     }
-
   }
 }

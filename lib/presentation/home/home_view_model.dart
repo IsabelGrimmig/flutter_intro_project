@@ -1,4 +1,3 @@
-import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 
 import '../../domain/use cases/get_trending_movies_use_case.dart';

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-// ignore: unused_import
-import 'favorites_view_model.dart';
 
 class FavoriteScreen extends StatelessWidget {
   const FavoriteScreen({super.key});

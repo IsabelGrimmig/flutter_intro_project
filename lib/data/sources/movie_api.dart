@@ -21,8 +21,6 @@ abstract class MovieApi {
   Future<MoviesListResponse>getCrimeMovies();
   Future<MoviesListResponse>getFamilyMovies();
   Future<MoviesListResponse>getHorrorMovies();
-  Future<MoviesListResponse>getNewMovies();
   Future<MoviesListResponse>getRomanceMovies();
   Future<MoviesListResponse>getWarMovies();
-
 }

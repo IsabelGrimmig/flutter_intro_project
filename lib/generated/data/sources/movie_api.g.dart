@@ -46,7 +46,7 @@ class _MovieApi implements MovieApi {
   }
 
   @override
-  Future<MoviesListResponse> getActionMovies() async {
+  Future<MoviesListResponse> getTopRatedMovies() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -59,7 +59,7 @@ class _MovieApi implements MovieApi {
     )
             .compose(
               _dio.options,
-              '/movie/action',
+              '/movie/top_rated',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -73,7 +73,7 @@ class _MovieApi implements MovieApi {
   }
 
   @override
-  Future<MoviesListResponse> getAnimationMovies() async {
+  Future<MoviesListResponse> getUpcomingMovies() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -86,7 +86,7 @@ class _MovieApi implements MovieApi {
     )
             .compose(
               _dio.options,
-              '/movie/animation',
+              '/movie/upcoming',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -100,7 +100,7 @@ class _MovieApi implements MovieApi {
   }
 
   @override
-  Future<MoviesListResponse> getCrimeMovies() async {
+  Future<MoviesListResponse> getNowPlayingMovies() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -113,115 +113,7 @@ class _MovieApi implements MovieApi {
     )
             .compose(
               _dio.options,
-              '/movie/crime',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final value = MoviesListResponse.fromJson(_result.data!);
-    return value;
-  }
-
-  @override
-  Future<MoviesListResponse> getFamilyMovies() async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<MoviesListResponse>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/movie/family',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final value = MoviesListResponse.fromJson(_result.data!);
-    return value;
-  }
-
-  @override
-  Future<MoviesListResponse> getHorrorMovies() async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<MoviesListResponse>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/movie/horror',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final value = MoviesListResponse.fromJson(_result.data!);
-    return value;
-  }
-
-  @override
-  Future<MoviesListResponse> getRomanceMovies() async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<MoviesListResponse>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/movie/romance',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final value = MoviesListResponse.fromJson(_result.data!);
-    return value;
-  }
-
-  @override
-  Future<MoviesListResponse> getWarMovies() async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<MoviesListResponse>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/movie/war',
+              '/movie/now_playing',
               queryParameters: queryParameters,
               data: _data,
             )

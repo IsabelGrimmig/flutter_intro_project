@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class SerachField extends StatelessWidget {
@@ -12,21 +11,18 @@ class SerachField extends StatelessWidget {
         Container(
           height: 50,
           color: Color(0xFFFFCAC2),
-
-          ),
-          //seecond Item
+        ),
+        //seecond Item
         Container(
           height: 50,
           color: Color(0xFFFFA8A0),
+        ),
 
-          ),
-
-          //therd item
+        //therd item
         Container(
           height: 50,
           color: Color(0xFFFFCAC2),
-
-          ),
+        ),
       ],
     );
   }

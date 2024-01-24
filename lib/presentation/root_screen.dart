@@ -7,19 +7,16 @@ class RootScreen extends StatefulWidget {
   const RootScreen({super.key});
 
   @override
-  State<RootScreen> createState() =>
-      _RootScreenState();
+  State<RootScreen> createState() => _RootScreenState();
 }
 
-class _RootScreenState
-    extends State<RootScreen> {
+class _RootScreenState extends State<RootScreen> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     FavoriteScreen()
-    
   ];
 
   void _onItemTapped(int index) {
@@ -45,7 +42,6 @@ class _RootScreenState
             icon: Icon(Icons.favorite),
             label: 'Favorites',
           ),
-          
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: const Color(0xFFE9265E),

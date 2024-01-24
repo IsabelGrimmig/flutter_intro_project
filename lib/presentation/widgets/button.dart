@@ -28,13 +28,13 @@ class SearchButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => showPopover(context: context, 
-      bodyBuilder:(context) => SerachField(),
-      width: 500,
-      height: 150,
+      onTap: () => showPopover(
+        context: context,
+        bodyBuilder: (context) => SerachField(),
+        width: 500,
+        height: 150,
       ),
       child: const Icon(Icons.search),
     );
   }
 }
-

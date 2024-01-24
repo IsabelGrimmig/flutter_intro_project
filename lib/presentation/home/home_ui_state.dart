@@ -1,13 +1,23 @@
 import '../../domain/models/movies_list_response.dart';
 
 class HomeUIState {
-  const HomeUIState({this.popularMovies, this.actionMovies});
+  const HomeUIState({
+    this.popularMovies,
+    this.topRatedMovies,
+    this.upcomingMovies,
+  });
   final MoviesListResponse? popularMovies;
-  final MoviesListResponse? actionMovies;
+  final MoviesListResponse? topRatedMovies;
+  final MoviesListResponse? upcomingMovies;
 
   HomeUIState copyWith({
-    MoviesListResponse? popularMovies, 
-    MoviesListResponse? actionMovies,
+    MoviesListResponse? popularMovies,
+    MoviesListResponse? topRatedMovies,
+    MoviesListResponse? upcomingMovies,
   }) =>
-      HomeUIState(popularMovies: popularMovies ?? this.popularMovies, actionMovies: actionMovies ?? this.actionMovies);
+      HomeUIState(
+        popularMovies: popularMovies ?? this.popularMovies,
+        topRatedMovies: topRatedMovies ?? this.topRatedMovies,
+        upcomingMovies: upcomingMovies ?? this.upcomingMovies,
+      );
 }

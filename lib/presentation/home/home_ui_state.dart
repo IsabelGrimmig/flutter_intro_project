@@ -1,11 +1,13 @@
 import '../../domain/models/movies_list_response.dart';
 
 class HomeUIState {
-  const HomeUIState({this.movies});
-  final MoviesListResponse? movies;
+  const HomeUIState({this.popularMovies, this.actionMovies});
+  final MoviesListResponse? popularMovies;
+  final MoviesListResponse? actionMovies;
 
   HomeUIState copyWith({
-    MoviesListResponse? movies,
+    MoviesListResponse? popularMovies, 
+    MoviesListResponse? actionMovies,
   }) =>
-      HomeUIState(movies: movies ?? this.movies);
+      HomeUIState(popularMovies: popularMovies ?? this.popularMovies, actionMovies: actionMovies ?? this.actionMovies);
 }

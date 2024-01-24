@@ -1,19 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:popover/popover.dart';
 
-class SingleMovieButton extends StatelessWidget{
-  const SingleMovieButton({super.key});
-  
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        
-      },
+import '../search_field.dart';
 
-    );
-  }
-  
-}
 class LikeButton extends StatelessWidget {
   final IconData icon;
   final VoidCallback onPressed;
@@ -33,4 +22,19 @@ class LikeButton extends StatelessWidget {
   }
 }
 
+class SearchButton extends StatelessWidget {
+  const SearchButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => showPopover(context: context, 
+      bodyBuilder:(context) => SerachField(),
+      width: 500,
+      height: 150,
+      ),
+      child: const Icon(Icons.search),
+    );
+  }
+}
 

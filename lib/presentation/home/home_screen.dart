@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../widgets/button.dart';
+import '../widgets/horizontal_list_view.dart';
 import 'home_view_model.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -11,27 +13,30 @@ class HomeScreen extends StatelessWidget {
       create: (context) => HomeViewModel(),
       child: Scaffold(
         appBar: AppBar(
+          actions: const [
+            SizedBox(
+              width: 50,
+              child: SearchButton()),
+            
+          ],
+          
           toolbarHeight: 80,
           backgroundColor: const Color(0xFFE9265E),
           title: const Text('Monta movies'),
+          
 
       
         ),
         
         body: Consumer<HomeViewModel>(
           builder: (context, viewModel, _) {
-            if (viewModel.state.movies?.results != null) {
-              return ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    ...viewModel.state.movies!.results!
-                        .map((movie) => Text(movie.title ?? '')),
-                  ],
-              
-              );
-            } else {
-              return const SizedBox.shrink();
-            }
+            return Column(
+              children: [
+                HorizontalListView(movies:viewModel.state.popularMovies?.results,),
+                HorizontalListView(movies:viewModel.state.actionMovies?.results,)
+                ],
+            );
+            
           },
         ),
         ),

@@ -16,8 +16,9 @@ class HomeScreen extends StatelessWidget {
           actions: const [
             SizedBox(width: 50, child: SearchButton()),
           ],
-          toolbarHeight: 80,
-          backgroundColor: const Color(0xFFE9265E),
+          toolbarHeight: 100,
+          backgroundColor: const Color(0xFFFF5252),
+          foregroundColor: Colors.white,
           title: const Text('Monta movies'),
         ),
         body: Consumer<HomeViewModel>(

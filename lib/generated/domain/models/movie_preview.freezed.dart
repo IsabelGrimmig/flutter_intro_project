@@ -23,7 +23,7 @@ mixin _$MoviePreview {
   @JsonKey(name: 'id')
   int get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'popularity')
-  int get popularity => throw _privateConstructorUsedError;
+  double get popularity => throw _privateConstructorUsedError;
   @JsonKey(name: 'title')
   String? get title => throw _privateConstructorUsedError;
   @JsonKey(name: 'overview')
@@ -47,7 +47,7 @@ abstract class $MoviePreviewCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'id') int id,
-      @JsonKey(name: 'popularity') int popularity,
+      @JsonKey(name: 'popularity') double popularity,
       @JsonKey(name: 'title') String? title,
       @JsonKey(name: 'overview') String? overview,
       @JsonKey(name: 'video') bool video,
@@ -82,7 +82,7 @@ class _$MoviePreviewCopyWithImpl<$Res, $Val extends MoviePreview>
       popularity: null == popularity
           ? _value.popularity
           : popularity // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -113,7 +113,7 @@ abstract class _$$MoviePreviewImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: 'id') int id,
-      @JsonKey(name: 'popularity') int popularity,
+      @JsonKey(name: 'popularity') double popularity,
       @JsonKey(name: 'title') String? title,
       @JsonKey(name: 'overview') String? overview,
       @JsonKey(name: 'video') bool video,
@@ -146,7 +146,7 @@ class __$$MoviePreviewImplCopyWithImpl<$Res>
       popularity: null == popularity
           ? _value.popularity
           : popularity // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -187,7 +187,7 @@ class _$MoviePreviewImpl implements _MoviePreview {
   final int id;
   @override
   @JsonKey(name: 'popularity')
-  final int popularity;
+  final double popularity;
   @override
   @JsonKey(name: 'title')
   final String? title;
@@ -243,7 +243,7 @@ class _$MoviePreviewImpl implements _MoviePreview {
 abstract class _MoviePreview implements MoviePreview {
   const factory _MoviePreview(
       {@JsonKey(name: 'id') required final int id,
-      @JsonKey(name: 'popularity') required final int popularity,
+      @JsonKey(name: 'popularity') required final double popularity,
       @JsonKey(name: 'title') final String? title,
       @JsonKey(name: 'overview') final String? overview,
       @JsonKey(name: 'video') final bool video,
@@ -257,7 +257,7 @@ abstract class _MoviePreview implements MoviePreview {
   int get id;
   @override
   @JsonKey(name: 'popularity')
-  int get popularity;
+  double get popularity;
   @override
   @JsonKey(name: 'title')
   String? get title;

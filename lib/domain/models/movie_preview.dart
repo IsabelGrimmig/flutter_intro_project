@@ -8,11 +8,12 @@ class MoviePreview with _$MoviePreview {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory MoviePreview({
     @JsonKey(name: 'id') required int id,
-    @JsonKey(name: 'popularity') required int popularity,
+    @JsonKey(name: 'popularity') required double popularity,
     @JsonKey(name: 'title') String? title,
     @JsonKey(name: 'overview') String? overview,
     @JsonKey(name: 'video') @Default(false) bool video,
     @JsonKey(name: 'adult') @Default(false) bool adult,
+    @JsonKey(name: 'poster_path') ,
   }) = _MoviePreview;
 
   factory MoviePreview.fromJson(Map<String, dynamic> json) =>

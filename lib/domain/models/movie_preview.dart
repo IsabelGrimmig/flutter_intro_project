@@ -13,7 +13,6 @@ class MoviePreview with _$MoviePreview {
     @JsonKey(name: 'overview') String? overview,
     @JsonKey(name: 'video') @Default(false) bool video,
     @JsonKey(name: 'adult') @Default(false) bool adult,
-    @JsonKey(name: 'poster_path') ,
   }) = _MoviePreview;
 
   factory MoviePreview.fromJson(Map<String, dynamic> json) =>

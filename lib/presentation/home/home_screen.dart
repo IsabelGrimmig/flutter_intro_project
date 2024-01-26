@@ -17,22 +17,37 @@ class HomeScreen extends StatelessWidget {
             SizedBox(width: 50, child: SearchButton()),
           ],
           toolbarHeight: 100,
-          backgroundColor: const Color(0xFFFF5252),
+          backgroundColor: const Color(0xFFE9265E),
           foregroundColor: Colors.white,
           title: const Text('Monta movies'),
         ),
         body: Consumer<HomeViewModel>(
           builder: (context, viewModel, _) {
             return Column(
-              children: [
+              children: <Widget>[
+                const Text('Dette er de mest populære film',
+                    style: TextStyle(
+                      color: Color(0xFFFF5252),
+                      fontSize: 18,
+                    )),
                 MovieHorizontalListView(
-                  movies: viewModel.state.popularMovies?.results,
+                  movies: viewModel.state.popularMovies,
                 ),
+                const Text('Dette er de film som er mest rated',
+                    style: TextStyle(
+                      color: Color(0xFFFF5252),
+                      fontSize: 18,
+                    )),
                 MovieHorizontalListView(
-                  movies: viewModel.state.topRatedMovies?.results,
+                  movies: viewModel.state.topRatedMovies,
                 ),
+                const Text('Dette er up-coming film',
+                    style: TextStyle(
+                      color: Color(0xFFFF5252),
+                      fontSize: 18,
+                    )),
                 MovieHorizontalListView(
-                  movies: viewModel.state.upcomingMovies?.results,
+                  movies: viewModel.state.upcomingMovies,
                 ),
               ],
             );

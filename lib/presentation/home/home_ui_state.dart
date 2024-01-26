@@ -1,4 +1,4 @@
-import '../../domain/models/movies_list_response.dart';
+import '../../domain/models/movie_preview.dart';
 
 class HomeUIState {
   const HomeUIState({
@@ -6,14 +6,14 @@ class HomeUIState {
     this.topRatedMovies,
     this.upcomingMovies,
   });
-  final MoviesListResponse? popularMovies;
-  final MoviesListResponse? topRatedMovies;
-  final MoviesListResponse? upcomingMovies;
+  final List<MoviePreview>? popularMovies;
+  final List<MoviePreview>? topRatedMovies;
+  final List<MoviePreview>? upcomingMovies;
 
   HomeUIState copyWith({
-    MoviesListResponse? popularMovies,
-    MoviesListResponse? topRatedMovies,
-    MoviesListResponse? upcomingMovies,
+    List<MoviePreview>? popularMovies,
+    List<MoviePreview>? topRatedMovies,
+    List<MoviePreview>? upcomingMovies,
   }) =>
       HomeUIState(
         popularMovies: popularMovies ?? this.popularMovies,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../domain/models/movie_preview.dart';
-import '../movie_details/movie_details_screen.dart';
 
 class MovieHorizontalListView extends StatelessWidget {
   const MovieHorizontalListView({super.key, this.movies});
@@ -15,13 +14,6 @@ class MovieHorizontalListView extends StatelessWidget {
           children: [
             ...movies!.map((movie) => GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            const MovieDetailsScreen(movie: movies),
-                      ),
-                    );
                     print(movie.id);
                   },
                   child: Text(movie.title ?? ''),

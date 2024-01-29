@@ -12,6 +12,7 @@ _$MoviePreviewImpl _$$MoviePreviewImplFromJson(Map<String, dynamic> json) =>
       popularity: (json['popularity'] as num).toDouble(),
       title: json['title'] as String?,
       overview: json['overview'] as String?,
+      filePath: json['file_path'] as String?,
       video: json['video'] as bool? ?? false,
       adult: json['adult'] as bool? ?? false,
     );
@@ -22,6 +23,7 @@ Map<String, dynamic> _$$MoviePreviewImplToJson(_$MoviePreviewImpl instance) =>
       'popularity': instance.popularity,
       'title': instance.title,
       'overview': instance.overview,
+      'file_path': instance.filePath,
       'video': instance.video,
       'adult': instance.adult,
     };

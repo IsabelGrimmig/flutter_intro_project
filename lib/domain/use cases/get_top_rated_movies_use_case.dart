@@ -3,7 +3,7 @@ import '../../data/sources/movie_api.dart';
 import '../../main.dart';
 import '../models/movies_list_response.dart';
 
-class GetTopRatedMoviesUseCase {
+final class GetTopRatedMoviesUseCase {
   final MovieApi _api = getIt.get<MovieApi>();
   Future<MoviesListResponse?> call() async {
     try {

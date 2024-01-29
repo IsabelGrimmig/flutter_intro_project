@@ -11,6 +11,7 @@ class MoviePreview with _$MoviePreview {
     @JsonKey(name: 'popularity') required double popularity,
     @JsonKey(name: 'title') String? title,
     @JsonKey(name: 'overview') String? overview,
+    @JsonKey(name: 'file_path') String? filePath,
     @JsonKey(name: 'video') @Default(false) bool video,
     @JsonKey(name: 'adult') @Default(false) bool adult,
   }) = _MoviePreview;

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../../domain/models/movie_image.dart';
 import '../../domain/models/movie_preview.dart';
 
 class MovieHorizontalListView extends StatelessWidget {
-  const MovieHorizontalListView({super.key, this.movies});
+  const MovieHorizontalListView({super.key, this.movies, this.moviesImage});
   final List<MoviePreview>? movies;
+  final List<MovieImage>? moviesImage;
 
   @override
   Widget build(BuildContext context) {

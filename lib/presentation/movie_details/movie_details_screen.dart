@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../domain/models/movie.dart';
+import '../../domain/models/movie_Image.dart';
 import 'movie_details_view_model.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
-  const MovieDetailsScreen(title, {super.key, required this.movie});
-  final Movie movie;
+  const MovieDetailsScreen(title, {super.key, required this.movieImage});
+  final MovieImage movieImage;
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<MovieDetailsViewModel>(
@@ -15,7 +15,7 @@ class MovieDetailsScreen extends StatelessWidget {
         body: Consumer<MovieDetailsViewModel>(
           builder: (context, viewModel, _) {
             return Column(
-              children: [Text(movie.title)],
+              children: [Text(movieImage.toString())],
             );
           },
         ),

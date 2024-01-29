@@ -4,7 +4,12 @@ import '../../domain/models/movie_image.dart';
 import '../../domain/models/movie_preview.dart';
 
 class MovieHorizontalListView extends StatelessWidget {
-  const MovieHorizontalListView({super.key, this.movies, this.moviesImage});
+  const MovieHorizontalListView(
+    List<MoviePreview>? movies, {
+    super.key,
+    this.movies,
+    this.moviesImage,
+  });
   final List<MoviePreview>? movies;
   final List<MovieImage>? moviesImage;
 

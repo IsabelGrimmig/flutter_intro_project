@@ -10,9 +10,8 @@ part '../../generated/data/sources/movie_api.g.dart';
 abstract class MovieApi {
   factory MovieApi(DioClient dio) {
     final baseUrl = dotenv.env['BASE_URL'].toString();
-    final imageUrl = dotenv.env['IMAGE_URL'].toString();
-    final fullBaseUrl = '$baseUrl$imageUrl';
-    return _MovieApi(dio.dio, baseUrl: fullBaseUrl);
+
+    return _MovieApi(dio.dio, baseUrl: baseUrl);
   }
 
   @GET('/movie/popular')

@@ -24,6 +24,7 @@ class HomeScreen extends StatelessWidget {
         body: Consumer<HomeViewModel>(
           builder: (context, viewModel, _) {
             return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 const Text('Dette er de mest populære film',
                     style: TextStyle(
@@ -42,6 +43,38 @@ class HomeScreen extends StatelessWidget {
                   movies: viewModel.state.topRatedMovies,
                 ),
                 const Text('Dette er up-coming film',
+                    style: TextStyle(
+                      color: Color(0xFFFF5252),
+                      fontSize: 18,
+                    )),
+                MovieHorizontalListView(
+                  movies: viewModel.state.upcomingMovies,
+                ),
+                const Text('Dette er en test',
+                    style: TextStyle(
+                      color: Color(0xFFFF5252),
+                      fontSize: 18,
+                    )),
+                MovieHorizontalListView(
+                  movies: viewModel.state.upcomingMovies,
+                ),
+                const Text('test',
+                    style: TextStyle(
+                      color: Color(0xFFFF5252),
+                      fontSize: 18,
+                    )),
+                MovieHorizontalListView(
+                  movies: viewModel.state.upcomingMovies,
+                ),
+                const Text('Tester',
+                    style: TextStyle(
+                      color: Color(0xFFFF5252),
+                      fontSize: 18,
+                    )),
+                MovieHorizontalListView(
+                  movies: viewModel.state.upcomingMovies,
+                ),
+                const Text('Tester2',
                     style: TextStyle(
                       color: Color(0xFFFF5252),
                       fontSize: 18,

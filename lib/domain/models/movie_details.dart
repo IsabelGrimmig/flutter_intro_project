@@ -9,6 +9,7 @@ class MovieDetails with _$MovieDetails {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory MovieDetails({
     @JsonKey(name: 'id') required int id,
+    @JsonKey(name: 'title') String? title,
     @JsonKey(name: 'imdb_id') String? imdbId,
     @JsonKey(name: 'original_language') String? originalLanguage,
     @JsonKey(name: 'original_title') String? originalTitle,

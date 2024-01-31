@@ -4,10 +4,10 @@ class MovieDetailsUIState {
   const MovieDetailsUIState({
     this.movieDetails,
   });
-  final List<MovieDetails>? movieDetails;
+  final MovieDetails? movieDetails;
 
   MovieDetailsUIState copyWith({
-    List<MovieDetails>? movieDetails,
+    MovieDetails? movieDetails,
   }) =>
       MovieDetailsUIState(
         movieDetails: movieDetails ?? this.movieDetails,

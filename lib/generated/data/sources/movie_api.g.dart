@@ -100,20 +100,20 @@ class _MovieApi implements MovieApi {
   }
 
   @override
-  Future<MoviesListResponse> getMovieDetails() async {
+  Future<MovieDetails> getMovieDetails({required int movieId}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<MoviesListResponse>(Options(
+        .fetch<Map<String, dynamic>>(_setStreamType<MovieDetails>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/movie/{movie_id}',
+              '/movie/${movieId}',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -122,7 +122,7 @@ class _MovieApi implements MovieApi {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = MoviesListResponse.fromJson(_result.data!);
+    final value = MovieDetails.fromJson(_result.data!);
     return value;
   }
 

@@ -1,5 +1,6 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:retrofit/retrofit.dart';
+import '../../domain/models/movie_details.dart';
 import '../../domain/models/movies_list_response.dart';
 import '../dio_client.dart';
 import 'package:dio/dio.dart';
@@ -24,5 +25,6 @@ abstract class MovieApi {
   Future<MoviesListResponse> getUpcomingMovies();
 
   @GET('/movie/{movie_id}')
-  Future<MoviesListResponse> getMovieDetails();
+  Future<MovieDetails> getMovieDetails(
+      {@Path('movie_id') required int movieId});
 }

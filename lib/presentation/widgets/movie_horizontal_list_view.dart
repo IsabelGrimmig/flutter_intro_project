@@ -12,8 +12,10 @@ class MovieHorizontalListView extends StatelessWidget {
   Widget build(BuildContext context) {
     String baseImageUrl = dotenv.env['IMAGE_URL'].toString();
     if (movies != null) {
-      return Expanded(
+      return SizedBox(
+        height: 200,
         child: ListView(
+          shrinkWrap: true,
           scrollDirection: Axis.horizontal,
           children: [
             ...movies!.map((movie) => GestureDetector(
@@ -22,7 +24,7 @@ class MovieHorizontalListView extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => MovieDetailsScreen(
-                                  movie.id,
+                                  id: movie.id,
                                 )));
                     print(movie.id);
                   },
@@ -35,7 +37,17 @@ class MovieHorizontalListView extends StatelessWidget {
                           '$baseImageUrl${movie.posterPath}',
                         )),
                       ),
-                      Text(movie.title ?? ''),
+                      Container(
+                        width: 100,
+                        child: Text(
+                          movie.title ?? '',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.green,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
                     ],
                   ),
                 )),

@@ -22,69 +22,71 @@ class HomeScreen extends StatelessWidget {
           foregroundColor: Colors.white,
           title: const Text('M O N T A   movies'),
         ),
-        body: Consumer<HomeViewModel>(
-          builder: (context, viewModel, _) {
-            return Column(
-              children: [
-                const Text('Trending movies',
-                    style: TextStyle(
-                      color: Color(0xFFFF5252),
-                      fontSize: 18,
-                    )),
-                MovieHorizontalListView(
-                  movies: viewModel.state.popularMovies,
-                ),
-                const Text('Top rated movies',
-                    style: TextStyle(
-                      color: Color(0xFFFF5252),
-                      fontSize: 18,
-                    )),
-                MovieHorizontalListView(
-                  movies: viewModel.state.topRatedMovies,
-                ),
-                const Text('Up-coming movies',
-                    style: TextStyle(
-                      color: Color(0xFFFF5252),
-                      fontSize: 18,
-                    )),
-                MovieHorizontalListView(
-                  movies: viewModel.state.upcomingMovies,
-                ),
-                const Text('Dette er en test',
-                    style: TextStyle(
-                      color: Color(0xFFFF5252),
-                      fontSize: 18,
-                    )),
-                MovieHorizontalListView(
-                  movies: viewModel.state.upcomingMovies,
-                ),
-                const Text('test',
-                    style: TextStyle(
-                      color: Color(0xFFFF5252),
-                      fontSize: 18,
-                    )),
-                MovieHorizontalListView(
-                  movies: viewModel.state.upcomingMovies,
-                ),
-                const Text('Tester',
-                    style: TextStyle(
-                      color: Color(0xFFFF5252),
-                      fontSize: 18,
-                    )),
-                MovieHorizontalListView(
-                  movies: viewModel.state.upcomingMovies,
-                ),
-                const Text('Tester2',
-                    style: TextStyle(
-                      color: Color(0xFFFF5252),
-                      fontSize: 18,
-                    )),
-                MovieHorizontalListView(
-                  movies: viewModel.state.upcomingMovies,
-                ),
-              ],
-            );
-          },
+        body: SingleChildScrollView(
+          child: Consumer<HomeViewModel>(
+            builder: (context, viewModel, _) {
+              return Column(
+                children: [
+                  const Text('Trending movies',
+                      style: TextStyle(
+                        color: Color(0xFFFF5252),
+                        fontSize: 18,
+                      )),
+                  MovieHorizontalListView(
+                    movies: viewModel.state.popularMovies,
+                  ),
+                  const Text('Top rated movies',
+                      style: TextStyle(
+                        color: Color(0xFFFF5252),
+                        fontSize: 18,
+                      )),
+                  MovieHorizontalListView(
+                    movies: viewModel.state.topRatedMovies,
+                  ),
+                  const Text('Up-coming movies',
+                      style: TextStyle(
+                        color: Color(0xFFFF5252),
+                        fontSize: 18,
+                      )),
+                  MovieHorizontalListView(
+                    movies: viewModel.state.upcomingMovies,
+                  ),
+                  const Text('Dette er en test',
+                      style: TextStyle(
+                        color: Color(0xFFFF5252),
+                        fontSize: 18,
+                      )),
+                  MovieHorizontalListView(
+                    movies: viewModel.state.upcomingMovies,
+                  ),
+                  const Text('test',
+                      style: TextStyle(
+                        color: Color(0xFFFF5252),
+                        fontSize: 18,
+                      )),
+                  MovieHorizontalListView(
+                    movies: viewModel.state.upcomingMovies,
+                  ),
+                  const Text('Tester',
+                      style: TextStyle(
+                        color: Color(0xFFFF5252),
+                        fontSize: 18,
+                      )),
+                  MovieHorizontalListView(
+                    movies: viewModel.state.upcomingMovies,
+                  ),
+                  const Text('Tester2',
+                      style: TextStyle(
+                        color: Color(0xFFFF5252),
+                        fontSize: 18,
+                      )),
+                  MovieHorizontalListView(
+                    movies: viewModel.state.upcomingMovies,
+                  ),
+                ],
+              );
+            },
+          ),
         ),
       ),
     );

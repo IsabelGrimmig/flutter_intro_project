@@ -10,7 +10,7 @@ class MovieHorizontalListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String baseImageUrl = dotenv.env['IMAGE_URL'].toString();
+    final baseImageUrl = dotenv.env['IMAGE_URL'].toString();
     if (movies != null) {
       return SizedBox(
         height: 200,
@@ -37,11 +37,11 @@ class MovieHorizontalListView extends StatelessWidget {
                           '$baseImageUrl${movie.posterPath}',
                         )),
                       ),
-                      Container(
+                      SizedBox(
                         width: 100,
                         child: Text(
                           movie.title ?? '',
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 16,
                             color: Colors.green,
                           ),

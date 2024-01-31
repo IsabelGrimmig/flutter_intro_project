@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../data/sources/movie_api.dart';
 import '../../main.dart';
 import '../models/movie_details.dart';
-import '../models/movies_list_response.dart';
 
 final class GetMovieDetailsUseCase {
   final MovieApi _api = getIt<MovieApi>();

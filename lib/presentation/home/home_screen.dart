@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import '../widgets/button.dart';
 import '../widgets/movie_horizontal_list_view.dart';
 import 'home_view_model.dart';
-import 'package:mediaquery_sizer/mediaquery_sizer.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

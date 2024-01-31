@@ -11,7 +11,7 @@ class MovieDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<MovieDetailsViewModel>(
       create: (context) => MovieDetailsViewModel(movieId: id),
-      child: _MovieDetailsScreenContent(),
+      child: const _MovieDetailsScreenContent(),
     );
   }
 }
@@ -21,10 +21,8 @@ class _MovieDetailsScreenContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String baseImageUrl = dotenv.env['IMAGE_URL'].toString();
     return Consumer<MovieDetailsViewModel>(
       builder: (context, viewModel, _) {
-        final viewModel2 = viewModel;
         return Scaffold(
           body: CustomScrollView(
             slivers: <Widget>[
@@ -33,11 +31,10 @@ class _MovieDetailsScreenContent extends StatelessWidget {
                 pinned: true,
                 stretch: true,
                 onStretchTrigger: () async {
-                  print('Hent ny data!');
                   //TODO tilføj requestNewData()
                 },
-                backgroundColor: Color(0xFFE9265E),
-                expandedHeight: 100.0,
+                backgroundColor: const Color(0xFFE9265E),
+                expandedHeight: 100,
                 flexibleSpace: const FlexibleSpaceBar(
                   stretchModes: [
                     StretchMode.zoomBackground,
@@ -59,16 +56,16 @@ class _MovieDetailsScreenContent extends StatelessWidget {
               const SliverToBoxAdapter(
                 child: Padding(
                   padding: EdgeInsets.all(16),
-                  child: Row(
-                    children: [
-                      SingleChildScrollView(
-                        child:
-                            Text(viewModel.state.movieDetails?.overview ?? ''),
-                      ),
-                    ],
+                  child: Text('hej'),
+                ),
+              ),
+              SizedBox(
+                child: Image(
+                  image: NetworkImage(
+                    viewModel.state.movieDetails?.posterPath ?? '',
                   ),
                 ),
-              )
+              ),
             ],
           ),
 

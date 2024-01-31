@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Intro App',
+      title: 'M O N T A Movie',
       theme: ThemeData(
         appBarTheme: const AppBarTheme(foregroundColor: Colors.white),
         useMaterial3: true,

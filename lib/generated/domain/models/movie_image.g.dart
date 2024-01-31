@@ -8,10 +8,10 @@ part of '../../../domain/models/movie_image.dart';
 
 _$MovieImageImpl _$$MovieImageImplFromJson(Map<String, dynamic> json) =>
     _$MovieImageImpl(
-      filePath: json['file_path'] as String?,
+      posterPath: json['poster_path'] as String?,
     );
 
 Map<String, dynamic> _$$MovieImageImplToJson(_$MovieImageImpl instance) =>
     <String, dynamic>{
-      'file_path': instance.filePath,
+      'poster_path': instance.posterPath,
     };

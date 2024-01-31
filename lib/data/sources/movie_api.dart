@@ -22,4 +22,7 @@ abstract class MovieApi {
 
   @GET('/movie/upcoming')
   Future<MoviesListResponse> getUpcomingMovies();
+
+  @GET('/movie/{movie_id}')
+  Future<MoviesListResponse> getMovieDetails();
 }

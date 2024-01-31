@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:popover/popover.dart';
 
-import '../search_field.dart';
+import '../search_field_screen.dart';
 
 class LikeButton extends StatelessWidget {
   final IconData icon;
@@ -30,7 +30,24 @@ class SearchButton extends StatelessWidget {
     return GestureDetector(
       onTap: () => showPopover(
         context: context,
-        bodyBuilder: (context) => SerachField(),
+        bodyBuilder: (context) => const SerachFieldScreen(),
+        width: 500,
+        height: 150,
+      ),
+      child: const Icon(Icons.search),
+    );
+  }
+}
+
+class BackButton extends StatelessWidget {
+  const BackButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => showPopover(
+        context: context,
+        bodyBuilder: (context) => const SerachFieldScreen(),
         width: 500,
         height: 150,
       ),

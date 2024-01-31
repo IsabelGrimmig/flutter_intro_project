@@ -20,8 +20,8 @@ MovieImage _$MovieImageFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MovieImage {
-  @JsonKey(name: 'file_path')
-  String? get filePath => throw _privateConstructorUsedError;
+  @JsonKey(name: 'poster_path')
+  String? get posterPath => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +35,7 @@ abstract class $MovieImageCopyWith<$Res> {
           MovieImage value, $Res Function(MovieImage) then) =
       _$MovieImageCopyWithImpl<$Res, MovieImage>;
   @useResult
-  $Res call({@JsonKey(name: 'file_path') String? filePath});
+  $Res call({@JsonKey(name: 'poster_path') String? posterPath});
 }
 
 /// @nodoc
@@ -51,12 +51,12 @@ class _$MovieImageCopyWithImpl<$Res, $Val extends MovieImage>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? filePath = freezed,
+    Object? posterPath = freezed,
   }) {
     return _then(_value.copyWith(
-      filePath: freezed == filePath
-          ? _value.filePath
-          : filePath // ignore: cast_nullable_to_non_nullable
+      posterPath: freezed == posterPath
+          ? _value.posterPath
+          : posterPath // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -70,7 +70,7 @@ abstract class _$$MovieImageImplCopyWith<$Res>
       __$$MovieImageImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: 'file_path') String? filePath});
+  $Res call({@JsonKey(name: 'poster_path') String? posterPath});
 }
 
 /// @nodoc
@@ -84,12 +84,12 @@ class __$$MovieImageImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? filePath = freezed,
+    Object? posterPath = freezed,
   }) {
     return _then(_$MovieImageImpl(
-      filePath: freezed == filePath
-          ? _value.filePath
-          : filePath // ignore: cast_nullable_to_non_nullable
+      posterPath: freezed == posterPath
+          ? _value.posterPath
+          : posterPath // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -99,18 +99,18 @@ class __$$MovieImageImplCopyWithImpl<$Res>
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _$MovieImageImpl implements _MovieImage {
-  const _$MovieImageImpl({@JsonKey(name: 'file_path') this.filePath});
+  const _$MovieImageImpl({@JsonKey(name: 'poster_path') this.posterPath});
 
   factory _$MovieImageImpl.fromJson(Map<String, dynamic> json) =>
       _$$MovieImageImplFromJson(json);
 
   @override
-  @JsonKey(name: 'file_path')
-  final String? filePath;
+  @JsonKey(name: 'poster_path')
+  final String? posterPath;
 
   @override
   String toString() {
-    return 'MovieImage(filePath: $filePath)';
+    return 'MovieImage(posterPath: $posterPath)';
   }
 
   @override
@@ -118,13 +118,13 @@ class _$MovieImageImpl implements _MovieImage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MovieImageImpl &&
-            (identical(other.filePath, filePath) ||
-                other.filePath == filePath));
+            (identical(other.posterPath, posterPath) ||
+                other.posterPath == posterPath));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, filePath);
+  int get hashCode => Object.hash(runtimeType, posterPath);
 
   @JsonKey(ignore: true)
   @override
@@ -142,14 +142,15 @@ class _$MovieImageImpl implements _MovieImage {
 
 abstract class _MovieImage implements MovieImage {
   const factory _MovieImage(
-      {@JsonKey(name: 'file_path') final String? filePath}) = _$MovieImageImpl;
+          {@JsonKey(name: 'poster_path') final String? posterPath}) =
+      _$MovieImageImpl;
 
   factory _MovieImage.fromJson(Map<String, dynamic> json) =
       _$MovieImageImpl.fromJson;
 
   @override
-  @JsonKey(name: 'file_path')
-  String? get filePath;
+  @JsonKey(name: 'poster_path')
+  String? get posterPath;
   @override
   @JsonKey(ignore: true)
   _$$MovieImageImplCopyWith<_$MovieImageImpl> get copyWith =>

@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import '../widgets/button.dart';
 import '../widgets/movie_horizontal_list_view.dart';
 import 'home_view_model.dart';
+import 'package:mediaquery_sizer/mediaquery_sizer.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -24,9 +25,8 @@ class HomeScreen extends StatelessWidget {
         body: Consumer<HomeViewModel>(
           builder: (context, viewModel, _) {
             return Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                const Text('Dette er de mest populære film',
+              children: [
+                const Text('Trending movies',
                     style: TextStyle(
                       color: Color(0xFFFF5252),
                       fontSize: 18,
@@ -34,7 +34,7 @@ class HomeScreen extends StatelessWidget {
                 MovieHorizontalListView(
                   movies: viewModel.state.popularMovies,
                 ),
-                const Text('Dette er de film som er mest rated',
+                const Text('Top rated movies',
                     style: TextStyle(
                       color: Color(0xFFFF5252),
                       fontSize: 18,
@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
                 MovieHorizontalListView(
                   movies: viewModel.state.topRatedMovies,
                 ),
-                const Text('Dette er up-coming film',
+                const Text('Up-coming movies',
                     style: TextStyle(
                       color: Color(0xFFFF5252),
                       fontSize: 18,

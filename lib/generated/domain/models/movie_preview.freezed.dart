@@ -22,16 +22,10 @@ MoviePreview _$MoviePreviewFromJson(Map<String, dynamic> json) {
 mixin _$MoviePreview {
   @JsonKey(name: 'id')
   int get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'popularity')
-  double get popularity => throw _privateConstructorUsedError;
   @JsonKey(name: 'title')
   String? get title => throw _privateConstructorUsedError;
-  @JsonKey(name: 'overview')
-  String? get overview => throw _privateConstructorUsedError;
   @JsonKey(name: 'poster_path')
   String? get posterPath => throw _privateConstructorUsedError;
-  @JsonKey(name: 'video')
-  bool get video => throw _privateConstructorUsedError;
   @JsonKey(name: 'adult')
   bool get adult => throw _privateConstructorUsedError;
 
@@ -49,11 +43,8 @@ abstract class $MoviePreviewCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'id') int id,
-      @JsonKey(name: 'popularity') double popularity,
       @JsonKey(name: 'title') String? title,
-      @JsonKey(name: 'overview') String? overview,
       @JsonKey(name: 'poster_path') String? posterPath,
-      @JsonKey(name: 'video') bool video,
       @JsonKey(name: 'adult') bool adult});
 }
 
@@ -71,11 +62,8 @@ class _$MoviePreviewCopyWithImpl<$Res, $Val extends MoviePreview>
   @override
   $Res call({
     Object? id = null,
-    Object? popularity = null,
     Object? title = freezed,
-    Object? overview = freezed,
     Object? posterPath = freezed,
-    Object? video = null,
     Object? adult = null,
   }) {
     return _then(_value.copyWith(
@@ -83,26 +71,14 @@ class _$MoviePreviewCopyWithImpl<$Res, $Val extends MoviePreview>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      popularity: null == popularity
-          ? _value.popularity
-          : popularity // ignore: cast_nullable_to_non_nullable
-              as double,
       title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      overview: freezed == overview
-          ? _value.overview
-          : overview // ignore: cast_nullable_to_non_nullable
               as String?,
       posterPath: freezed == posterPath
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
               as String?,
-      video: null == video
-          ? _value.video
-          : video // ignore: cast_nullable_to_non_nullable
-              as bool,
       adult: null == adult
           ? _value.adult
           : adult // ignore: cast_nullable_to_non_nullable
@@ -121,11 +97,8 @@ abstract class _$$MoviePreviewImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: 'id') int id,
-      @JsonKey(name: 'popularity') double popularity,
       @JsonKey(name: 'title') String? title,
-      @JsonKey(name: 'overview') String? overview,
       @JsonKey(name: 'poster_path') String? posterPath,
-      @JsonKey(name: 'video') bool video,
       @JsonKey(name: 'adult') bool adult});
 }
 
@@ -141,11 +114,8 @@ class __$$MoviePreviewImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? popularity = null,
     Object? title = freezed,
-    Object? overview = freezed,
     Object? posterPath = freezed,
-    Object? video = null,
     Object? adult = null,
   }) {
     return _then(_$MoviePreviewImpl(
@@ -153,26 +123,14 @@ class __$$MoviePreviewImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      popularity: null == popularity
-          ? _value.popularity
-          : popularity // ignore: cast_nullable_to_non_nullable
-              as double,
       title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      overview: freezed == overview
-          ? _value.overview
-          : overview // ignore: cast_nullable_to_non_nullable
               as String?,
       posterPath: freezed == posterPath
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
               as String?,
-      video: null == video
-          ? _value.video
-          : video // ignore: cast_nullable_to_non_nullable
-              as bool,
       adult: null == adult
           ? _value.adult
           : adult // ignore: cast_nullable_to_non_nullable
@@ -187,11 +145,8 @@ class __$$MoviePreviewImplCopyWithImpl<$Res>
 class _$MoviePreviewImpl implements _MoviePreview {
   const _$MoviePreviewImpl(
       {@JsonKey(name: 'id') required this.id,
-      @JsonKey(name: 'popularity') required this.popularity,
       @JsonKey(name: 'title') this.title,
-      @JsonKey(name: 'overview') this.overview,
       @JsonKey(name: 'poster_path') this.posterPath,
-      @JsonKey(name: 'video') this.video = false,
       @JsonKey(name: 'adult') this.adult = false});
 
   factory _$MoviePreviewImpl.fromJson(Map<String, dynamic> json) =>
@@ -201,27 +156,18 @@ class _$MoviePreviewImpl implements _MoviePreview {
   @JsonKey(name: 'id')
   final int id;
   @override
-  @JsonKey(name: 'popularity')
-  final double popularity;
-  @override
   @JsonKey(name: 'title')
   final String? title;
   @override
-  @JsonKey(name: 'overview')
-  final String? overview;
-  @override
   @JsonKey(name: 'poster_path')
   final String? posterPath;
-  @override
-  @JsonKey(name: 'video')
-  final bool video;
   @override
   @JsonKey(name: 'adult')
   final bool adult;
 
   @override
   String toString() {
-    return 'MoviePreview(id: $id, popularity: $popularity, title: $title, overview: $overview, posterPath: $posterPath, video: $video, adult: $adult)';
+    return 'MoviePreview(id: $id, title: $title, posterPath: $posterPath, adult: $adult)';
   }
 
   @override
@@ -230,21 +176,15 @@ class _$MoviePreviewImpl implements _MoviePreview {
         (other.runtimeType == runtimeType &&
             other is _$MoviePreviewImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.popularity, popularity) ||
-                other.popularity == popularity) &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.overview, overview) ||
-                other.overview == overview) &&
             (identical(other.posterPath, posterPath) ||
                 other.posterPath == posterPath) &&
-            (identical(other.video, video) || other.video == video) &&
             (identical(other.adult, adult) || other.adult == adult));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, popularity, title, overview, posterPath, video, adult);
+  int get hashCode => Object.hash(runtimeType, id, title, posterPath, adult);
 
   @JsonKey(ignore: true)
   @override
@@ -263,11 +203,8 @@ class _$MoviePreviewImpl implements _MoviePreview {
 abstract class _MoviePreview implements MoviePreview {
   const factory _MoviePreview(
       {@JsonKey(name: 'id') required final int id,
-      @JsonKey(name: 'popularity') required final double popularity,
       @JsonKey(name: 'title') final String? title,
-      @JsonKey(name: 'overview') final String? overview,
       @JsonKey(name: 'poster_path') final String? posterPath,
-      @JsonKey(name: 'video') final bool video,
       @JsonKey(name: 'adult') final bool adult}) = _$MoviePreviewImpl;
 
   factory _MoviePreview.fromJson(Map<String, dynamic> json) =
@@ -277,20 +214,11 @@ abstract class _MoviePreview implements MoviePreview {
   @JsonKey(name: 'id')
   int get id;
   @override
-  @JsonKey(name: 'popularity')
-  double get popularity;
-  @override
   @JsonKey(name: 'title')
   String? get title;
   @override
-  @JsonKey(name: 'overview')
-  String? get overview;
-  @override
   @JsonKey(name: 'poster_path')
   String? get posterPath;
-  @override
-  @JsonKey(name: 'video')
-  bool get video;
   @override
   @JsonKey(name: 'adult')
   bool get adult;

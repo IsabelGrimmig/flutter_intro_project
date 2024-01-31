@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import '../../domain/models/movie_preview.dart';
+import '../movie_details/movie_details_screen.dart';
 
 class MovieHorizontalListView extends StatelessWidget {
   const MovieHorizontalListView({this.movies, super.key});
@@ -17,12 +18,18 @@ class MovieHorizontalListView extends StatelessWidget {
           children: [
             ...movies!.map((movie) => GestureDetector(
                   onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => MovieDetailsScreen(
+                                  movie.id,
+                                )));
                     print(movie.id);
                   },
                   child: Column(
                     children: [
                       SizedBox(
-                        width: 120,
+                        width: 100,
                         child: Image(
                             image: NetworkImage(
                           '$baseImageUrl${movie.posterPath}',
@@ -36,7 +43,9 @@ class MovieHorizontalListView extends StatelessWidget {
         ),
       );
     } else {
-      return const SizedBox.shrink();
+      return const SizedBox.shrink(
+        child: Text('Kunne ikke indlæse nogen film'),
+      );
     }
   }
 }

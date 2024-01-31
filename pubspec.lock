@@ -363,6 +363,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.5.0"
+  mediaquery_sizer:
+    dependency: "direct main"
+    description:
+      name: mediaquery_sizer
+      sha256: c0688be64b469f249f839ca69558d93d6ab584f9bce333e166fa47d51c7888cc
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
   meta:
     dependency: transitive
     description:

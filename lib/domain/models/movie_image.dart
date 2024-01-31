@@ -7,7 +7,7 @@ part '../../generated/domain/models/movie_image.g.dart';
 class MovieImage with _$MovieImage {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory MovieImage({
-    @JsonKey(name: 'file_path') String? filePath,
+    @JsonKey(name: 'poster_path') String? posterPath,
   }) = _MovieImage;
 
   factory MovieImage.fromJson(Map<String, dynamic> json) =>

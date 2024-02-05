@@ -59,7 +59,10 @@ class _MovieDetailsScreenContent extends StatelessWidget {
                   padding: EdgeInsets.all(16),
                   child: Column(
                     children: [
-                      Text(viewModel.state.movieDetails?.overview ?? ''),
+                      Text(
+                        movieDetails:
+                            viewModel.state.movieDetails?.overview ?? '',
+                      ),
                     ],
                   ),
                 ),

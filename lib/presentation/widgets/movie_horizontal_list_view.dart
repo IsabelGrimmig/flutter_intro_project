@@ -38,12 +38,12 @@ class MovieHorizontalListView extends StatelessWidget {
                         )),
                       ),
                       SizedBox(
-                        width: 100,
+                        width: 150,
                         child: Text(
                           movie.title ?? '',
                           style: const TextStyle(
                             fontSize: 16,
-                            color: Colors.green,
+                            color: Colors.black,
                           ),
                           textAlign: TextAlign.center,
                         ),

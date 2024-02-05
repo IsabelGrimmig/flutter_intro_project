@@ -28,6 +28,7 @@ class _MovieDetailsScreenContent extends StatelessWidget {
             slivers: <Widget>[
               SliverAppBar(
                 title: Text(viewModel.state.movieDetails?.title ?? ''),
+                floating: true,
                 pinned: true,
                 stretch: true,
                 onStretchTrigger: () async {
@@ -47,7 +48,7 @@ class _MovieDetailsScreenContent extends StatelessWidget {
                       gradient: LinearGradient(
                         begin: Alignment.bottomCenter,
                         end: Alignment.center,
-                        colors: <Color>[Color(0xFFFF5252), Colors.transparent],
+                        colors: <Color>[Color(0xFFFF5252), Color(0xFFFF3162)],
                       ),
                     ),
                   ),
@@ -56,35 +57,15 @@ class _MovieDetailsScreenContent extends StatelessWidget {
               const SliverToBoxAdapter(
                 child: Padding(
                   padding: EdgeInsets.all(16),
-                  child: Text('hej'),
-                ),
-              ),
-              SizedBox(
-                child: Image(
-                  image: NetworkImage(
-                    viewModel.state.movieDetails?.posterPath ?? '',
+                  child: Column(
+                    children: [
+                      Text(viewModel.state.movieDetails?.overview ?? ''),
+                    ],
                   ),
                 ),
               ),
             ],
           ),
-
-          /*return Consumer<MovieDetailsViewModel>(
-            builder: (context, viewModel, _) {
-              return Column(
-                children: [
-                  const Column(
-                    children: [
-                      Text(
-                          'Her fra og ned vil der først være filmbillede og så en beskrivelse og til sidst en rating info'),
-                    ],
-                  ),
-                  MovieHorizontalListView(
-                    movies: viewModel.state.popularMovies,
-                  )
-                ],
-              );
-            },*/
         );
       },
     );

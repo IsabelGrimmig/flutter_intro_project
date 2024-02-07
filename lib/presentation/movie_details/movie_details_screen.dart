@@ -2,11 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
 
+import '../../domain/models/movie_details.dart';
+import '../favorites/favorites_screen.dart';
+import '../favorites/favorites_view_model.dart';
+import '../widgets/button.dart';
 import 'movie_details_view_model.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
-  const MovieDetailsScreen({required this.id, super.key});
+  const MovieDetailsScreen({
+    required this.id,
+    super.key,
+  });
   final int id;
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<MovieDetailsViewModel>(
@@ -23,19 +31,21 @@ class _MovieDetailsScreenContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<MovieDetailsViewModel>(
       builder: (context, viewModel, _) {
+        final favoritesViewModel =
+            Provider.of<FavoritesViewModel>(context, listen: false);
+
         return Scaffold(
           body: CustomScrollView(
             slivers: <Widget>[
               SliverAppBar(
                 title: Text(viewModel.state.movieDetails?.title ?? ''),
-                floating: true,
+                floating: false,
                 pinned: true,
                 stretch: true,
                 onStretchTrigger: () async {
                   //TODO tilføj requestNewData()
                 },
-                backgroundColor: const Color(0xFFE9265E),
-                expandedHeight: 100,
+                expandedHeight: 200,
                 flexibleSpace: const FlexibleSpaceBar(
                   stretchModes: [
                     StretchMode.zoomBackground,
@@ -54,15 +64,36 @@ class _MovieDetailsScreenContent extends StatelessWidget {
                   ),
                 ),
               ),
-              const SliverToBoxAdapter(
+              SliverToBoxAdapter(
                 child: Padding(
-                  padding: EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(5),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        movieDetails:
-                            viewModel.state.movieDetails?.overview ?? '',
+                        'Original Language:${viewModel.state.movieDetails!.originalLanguage}',
+                        style: const TextStyle(
+                            fontSize: 11, color: Color(0xFFFF5252)),
                       ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const Text(
+                        'Movie overview',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      Text(
+                        viewModel.state.movieDetails?.overview ?? '',
+                      ),
+                      const SizedBox(
+                        height: 16,
+                      ),
+                      LikeButton(
+                          icon: Icons.favorite,
+                          onPressed: () {
+                            favoritesViewModel
+                                .toggleFavorite(viewModel.state.movieDetails!);
+                          })
                     ],
                   ),
                 ),

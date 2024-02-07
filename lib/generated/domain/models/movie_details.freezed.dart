@@ -12,7 +12,7 @@ part of '../../../domain/models/movie_details.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 MovieDetails _$MovieDetailsFromJson(Map<String, dynamic> json) {
   return _MovieDetails.fromJson(json);
@@ -28,8 +28,6 @@ mixin _$MovieDetails {
   String? get imdbId => throw _privateConstructorUsedError;
   @JsonKey(name: 'original_language')
   String? get originalLanguage => throw _privateConstructorUsedError;
-  @JsonKey(name: 'original_title')
-  String? get originalTitle => throw _privateConstructorUsedError;
   @JsonKey(name: 'overview')
   String? get overview => throw _privateConstructorUsedError;
   @JsonKey(name: 'popularity')
@@ -54,7 +52,6 @@ abstract class $MovieDetailsCopyWith<$Res> {
       @JsonKey(name: 'title') String? title,
       @JsonKey(name: 'imdb_id') String? imdbId,
       @JsonKey(name: 'original_language') String? originalLanguage,
-      @JsonKey(name: 'original_title') String? originalTitle,
       @JsonKey(name: 'overview') String? overview,
       @JsonKey(name: 'popularity') double popularity,
       @JsonKey(name: 'poster_path') String? posterPath});
@@ -77,7 +74,6 @@ class _$MovieDetailsCopyWithImpl<$Res, $Val extends MovieDetails>
     Object? title = freezed,
     Object? imdbId = freezed,
     Object? originalLanguage = freezed,
-    Object? originalTitle = freezed,
     Object? overview = freezed,
     Object? popularity = null,
     Object? posterPath = freezed,
@@ -98,10 +94,6 @@ class _$MovieDetailsCopyWithImpl<$Res, $Val extends MovieDetails>
       originalLanguage: freezed == originalLanguage
           ? _value.originalLanguage
           : originalLanguage // ignore: cast_nullable_to_non_nullable
-              as String?,
-      originalTitle: freezed == originalTitle
-          ? _value.originalTitle
-          : originalTitle // ignore: cast_nullable_to_non_nullable
               as String?,
       overview: freezed == overview
           ? _value.overview
@@ -132,7 +124,6 @@ abstract class _$$MovieDetailsImplCopyWith<$Res>
       @JsonKey(name: 'title') String? title,
       @JsonKey(name: 'imdb_id') String? imdbId,
       @JsonKey(name: 'original_language') String? originalLanguage,
-      @JsonKey(name: 'original_title') String? originalTitle,
       @JsonKey(name: 'overview') String? overview,
       @JsonKey(name: 'popularity') double popularity,
       @JsonKey(name: 'poster_path') String? posterPath});
@@ -153,7 +144,6 @@ class __$$MovieDetailsImplCopyWithImpl<$Res>
     Object? title = freezed,
     Object? imdbId = freezed,
     Object? originalLanguage = freezed,
-    Object? originalTitle = freezed,
     Object? overview = freezed,
     Object? popularity = null,
     Object? posterPath = freezed,
@@ -174,10 +164,6 @@ class __$$MovieDetailsImplCopyWithImpl<$Res>
       originalLanguage: freezed == originalLanguage
           ? _value.originalLanguage
           : originalLanguage // ignore: cast_nullable_to_non_nullable
-              as String?,
-      originalTitle: freezed == originalTitle
-          ? _value.originalTitle
-          : originalTitle // ignore: cast_nullable_to_non_nullable
               as String?,
       overview: freezed == overview
           ? _value.overview
@@ -204,7 +190,6 @@ class _$MovieDetailsImpl with DiagnosticableTreeMixin implements _MovieDetails {
       @JsonKey(name: 'title') this.title,
       @JsonKey(name: 'imdb_id') this.imdbId,
       @JsonKey(name: 'original_language') this.originalLanguage,
-      @JsonKey(name: 'original_title') this.originalTitle,
       @JsonKey(name: 'overview') this.overview,
       @JsonKey(name: 'popularity') required this.popularity,
       @JsonKey(name: 'poster_path') this.posterPath});
@@ -225,9 +210,6 @@ class _$MovieDetailsImpl with DiagnosticableTreeMixin implements _MovieDetails {
   @JsonKey(name: 'original_language')
   final String? originalLanguage;
   @override
-  @JsonKey(name: 'original_title')
-  final String? originalTitle;
-  @override
   @JsonKey(name: 'overview')
   final String? overview;
   @override
@@ -239,7 +221,7 @@ class _$MovieDetailsImpl with DiagnosticableTreeMixin implements _MovieDetails {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'MovieDetails(id: $id, title: $title, imdbId: $imdbId, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, popularity: $popularity, posterPath: $posterPath)';
+    return 'MovieDetails(id: $id, title: $title, imdbId: $imdbId, originalLanguage: $originalLanguage, overview: $overview, popularity: $popularity, posterPath: $posterPath)';
   }
 
   @override
@@ -251,7 +233,6 @@ class _$MovieDetailsImpl with DiagnosticableTreeMixin implements _MovieDetails {
       ..add(DiagnosticsProperty('title', title))
       ..add(DiagnosticsProperty('imdbId', imdbId))
       ..add(DiagnosticsProperty('originalLanguage', originalLanguage))
-      ..add(DiagnosticsProperty('originalTitle', originalTitle))
       ..add(DiagnosticsProperty('overview', overview))
       ..add(DiagnosticsProperty('popularity', popularity))
       ..add(DiagnosticsProperty('posterPath', posterPath));
@@ -267,8 +248,6 @@ class _$MovieDetailsImpl with DiagnosticableTreeMixin implements _MovieDetails {
             (identical(other.imdbId, imdbId) || other.imdbId == imdbId) &&
             (identical(other.originalLanguage, originalLanguage) ||
                 other.originalLanguage == originalLanguage) &&
-            (identical(other.originalTitle, originalTitle) ||
-                other.originalTitle == originalTitle) &&
             (identical(other.overview, overview) ||
                 other.overview == overview) &&
             (identical(other.popularity, popularity) ||
@@ -280,7 +259,7 @@ class _$MovieDetailsImpl with DiagnosticableTreeMixin implements _MovieDetails {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, title, imdbId,
-      originalLanguage, originalTitle, overview, popularity, posterPath);
+      originalLanguage, overview, popularity, posterPath);
 
   @JsonKey(ignore: true)
   @override
@@ -302,7 +281,6 @@ abstract class _MovieDetails implements MovieDetails {
           @JsonKey(name: 'title') final String? title,
           @JsonKey(name: 'imdb_id') final String? imdbId,
           @JsonKey(name: 'original_language') final String? originalLanguage,
-          @JsonKey(name: 'original_title') final String? originalTitle,
           @JsonKey(name: 'overview') final String? overview,
           @JsonKey(name: 'popularity') required final double popularity,
           @JsonKey(name: 'poster_path') final String? posterPath}) =
@@ -323,9 +301,6 @@ abstract class _MovieDetails implements MovieDetails {
   @override
   @JsonKey(name: 'original_language')
   String? get originalLanguage;
-  @override
-  @JsonKey(name: 'original_title')
-  String? get originalTitle;
   @override
   @JsonKey(name: 'overview')
   String? get overview;

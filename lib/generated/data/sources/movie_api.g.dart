@@ -20,10 +20,10 @@ class _MovieApi implements MovieApi {
 
   @override
   Future<MoviesListResponse> getPopularMovie() async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<MoviesListResponse>(Options(
       method: 'GET',
@@ -47,10 +47,10 @@ class _MovieApi implements MovieApi {
 
   @override
   Future<MoviesListResponse> getTopRatedMovies() async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<MoviesListResponse>(Options(
       method: 'GET',
@@ -74,10 +74,10 @@ class _MovieApi implements MovieApi {
 
   @override
   Future<MoviesListResponse> getUpcomingMovies() async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<MoviesListResponse>(Options(
       method: 'GET',
@@ -101,10 +101,10 @@ class _MovieApi implements MovieApi {
 
   @override
   Future<MovieDetails> getMovieDetails({required int movieId}) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<MovieDetails>(Options(
       method: 'GET',

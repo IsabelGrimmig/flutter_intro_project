@@ -12,7 +12,6 @@ class MovieDetails with _$MovieDetails {
     @JsonKey(name: 'title') String? title,
     @JsonKey(name: 'imdb_id') String? imdbId,
     @JsonKey(name: 'original_language') String? originalLanguage,
-    @JsonKey(name: 'original_title') String? originalTitle,
     @JsonKey(name: 'overview') String? overview,
     @JsonKey(name: 'popularity') required double popularity,
     @JsonKey(name: 'poster_path') String? posterPath,

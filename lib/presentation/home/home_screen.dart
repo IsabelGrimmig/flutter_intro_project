@@ -40,17 +40,22 @@ class HomeScreen extends StatelessWidget {
                         )),
                     const SizedBox(height: 20),
                     const TrendingSlider(),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     MovieHorizontalListView(
                       movies: viewModel.state.popularMovies,
                     ),
                     const SizedBox(
                       height: 20,
                     ),
-                    const Text('Top rated movies',
-                        style: TextStyle(
-                          color: Color(0xFFFF5252),
-                          fontSize: 20,
-                        )),
+                    const Text(
+                      'Top rated movies',
+                      style: TextStyle(
+                        color: Color(0xFFFF5252),
+                        fontSize: 20,
+                      ),
+                    ),
                     const SizedBox(
                       height: 20,
                     ),
@@ -58,59 +63,13 @@ class HomeScreen extends StatelessWidget {
                     MovieHorizontalListView(
                       movies: viewModel.state.topRatedMovies,
                     ),
-                    const Text('Up-coming movies',
-                        style: TextStyle(
-                          color: Color(0xFFFF5252),
-                          fontSize: 20,
-                        )),
-                    const SizedBox(
-                      height: 20,
+                    const Text(
+                      'Up-coming movies',
+                      style: TextStyle(
+                        color: Color(0xFFFF5252),
+                        fontSize: 20,
+                      ),
                     ),
-                    const MovieSlider(),
-                    MovieHorizontalListView(
-                      movies: viewModel.state.upcomingMovies,
-                    ),
-                    const Text('Dette er en test',
-                        style: TextStyle(
-                          color: Color(0xFFFF5252),
-                          fontSize: 20,
-                        )),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    const MovieSlider(),
-                    MovieHorizontalListView(
-                      movies: viewModel.state.upcomingMovies,
-                    ),
-                    const Text('test',
-                        style: TextStyle(
-                          color: Color(0xFFFF5252),
-                          fontSize: 20,
-                        )),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    const MovieSlider(),
-                    MovieHorizontalListView(
-                      movies: viewModel.state.upcomingMovies,
-                    ),
-                    const Text('Tester',
-                        style: TextStyle(
-                          color: Color(0xFFFF5252),
-                          fontSize: 20,
-                        )),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    const MovieSlider(),
-                    MovieHorizontalListView(
-                      movies: viewModel.state.upcomingMovies,
-                    ),
-                    const Text('Tester2',
-                        style: TextStyle(
-                          color: Color(0xFFFF5252),
-                          fontSize: 20,
-                        )),
                     const SizedBox(
                       height: 20,
                     ),

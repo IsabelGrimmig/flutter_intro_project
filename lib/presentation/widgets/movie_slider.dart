@@ -16,7 +16,7 @@ class MovieSlider extends StatelessWidget {
         itemCount: 10,
         itemBuilder: (context, index) {
           return Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: Container(

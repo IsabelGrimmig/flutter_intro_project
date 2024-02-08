@@ -17,40 +17,36 @@ class MovieHorizontalListView extends StatelessWidget {
         child: ListView(
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
+          physics: const BouncingScrollPhysics(),
           children: [
-            ...movies!.map((movie) => GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => MovieDetailsScreen(
-                                  id: movie.id,
-                                )));
-                    print(movie.id);
-                  },
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        width: 100,
-                        child: Image(
-                            image: NetworkImage(
-                          '$baseImageUrl${movie.posterPath}',
-                        )),
-                      ),
-                      SizedBox(
-                        width: 150,
-                        child: Text(
-                          movie.title ?? '',
-                          style: const TextStyle(
-                            fontSize: 16,
-                            color: Colors.black,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ],
+            ...movies!.map(
+              (movie) => GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => MovieDetailsScreen(
+                                id: movie.id,
+                              )));
+                  print(movie.id);
+                },
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                )),
+                  clipBehavior: Clip.antiAlias,
+                  elevation: 5,
+                  child: Image(
+                    image: NetworkImage(
+                      '$baseImageUrl${movie.posterPath}',
+                    ),
+                    width: 120,
+                    height: 100,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       );

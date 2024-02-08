@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
+import '../root_screen.dart';
 
-import '../../domain/models/movie_details.dart';
+class FavoriteViewModel extends StatelessWidget {
+  const FavoriteViewModel({super.key});
 
-class FavoritesViewModel extends ChangeNotifier {
-  List<MovieDetails> _favoriteMovies = [];
-
-  List<MovieDetails> get favoriteMovies => _favoriteMovies;
-
-  void toggleFavorite(MovieDetails movie) {
-    if (_favoriteMovies.contains(movie)) {
-      _favoriteMovies.remove(movie);
-    } else {
-      _favoriteMovies.add(movie);
-    }
-    notifyListeners();
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      children: [
+        RootScreen(),
+      ],
+    );
   }
 }

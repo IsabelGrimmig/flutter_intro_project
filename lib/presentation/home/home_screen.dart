@@ -36,7 +36,7 @@ class HomeScreen extends StatelessWidget {
                     const Text('Trending movies',
                         style: TextStyle(
                           color: Color(0xFFFF5252),
-                          fontSize: 20,
+                          fontSize: 25,
                         )),
                     const SizedBox(height: 20),
                     const TrendingSlider(),
@@ -47,33 +47,28 @@ class HomeScreen extends StatelessWidget {
                       movies: viewModel.state.popularMovies,
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 30,
                     ),
                     const Text(
                       'Top rated movies',
                       style: TextStyle(
                         color: Color(0xFFFF5252),
-                        fontSize: 20,
+                        fontSize: 25,
                       ),
                     ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    const MovieSlider(),
                     MovieHorizontalListView(
                       movies: viewModel.state.topRatedMovies,
+                    ),
+                    const SizedBox(
+                      height: 30,
                     ),
                     const Text(
                       'Up-coming movies',
                       style: TextStyle(
                         color: Color(0xFFFF5252),
-                        fontSize: 20,
+                        fontSize: 25,
                       ),
                     ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    const MovieSlider(),
                     MovieHorizontalListView(
                       movies: viewModel.state.upcomingMovies,
                     ),

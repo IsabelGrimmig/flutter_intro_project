@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:like_button/like_button.dart';
 import 'package:provider/provider.dart';
 
-import '../../domain/models/movie_details.dart';
-import '../favorites/favorites_screen.dart';
-import '../favorites/favorites_view_model.dart';
 import '../widgets/button.dart';
 import 'movie_details_view_model.dart';
 
@@ -29,40 +28,25 @@ class _MovieDetailsScreenContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final baseImageUrl = dotenv.env['IMAGE_URL'].toString();
     return Consumer<MovieDetailsViewModel>(
       builder: (context, viewModel, _) {
-        final favoritesViewModel =
-            Provider.of<FavoritesViewModel>(context, listen: false);
-
         return Scaffold(
           body: CustomScrollView(
             slivers: <Widget>[
               SliverAppBar(
-                title: Text(viewModel.state.movieDetails?.title ?? ''),
-                floating: false,
                 pinned: true,
                 stretch: true,
-                onStretchTrigger: () async {
-                  //TODO tilføj requestNewData()
-                },
-                expandedHeight: 200,
-                flexibleSpace: const FlexibleSpaceBar(
-                  stretchModes: [
-                    StretchMode.zoomBackground,
-                    StretchMode.fadeTitle,
-                    StretchMode.blurBackground,
-                  ],
-                  background: DecoratedBox(
-                    position: DecorationPosition.foreground,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.bottomCenter,
-                        end: Alignment.center,
-                        colors: <Color>[Color(0xFFFF5252), Color(0xFFFF3162)],
-                      ),
+                expandedHeight: 585,
+                flexibleSpace: FlexibleSpaceBar(
+                  background: Image(
+                    image: NetworkImage(
+                      '$baseImageUrl${viewModel.state.movieDetails?.posterPath}',
+                      //fit: BoxFit.cover,
                     ),
                   ),
                 ),
+                backgroundColor: const Color(0xFFE9265E),
               ),
               SliverToBoxAdapter(
                 child: Padding(
@@ -71,29 +55,60 @@ class _MovieDetailsScreenContent extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
+                        viewModel.state.movieDetails?.title ?? '',
+                        style: GoogleFonts.quicksand(
+                          textStyle: const TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      Text(
                         'Original Language:${viewModel.state.movieDetails!.originalLanguage}',
                         style: const TextStyle(
-                            fontSize: 11, color: Color(0xFFFF5252)),
+                          fontSize: 12,
+                          color: Color(0xFFFF5252),
+                        ),
                       ),
                       const SizedBox(
                         height: 20,
                       ),
-                      const Text(
-                        'Movie overview',
-                        style: TextStyle(fontSize: 20),
+                      Text(
+                        'Movie overview:',
+                        style: GoogleFonts.quicksand(
+                          textStyle: const TextStyle(
+                            fontSize: 22,
+                          ),
+                        ),
                       ),
                       Text(
                         viewModel.state.movieDetails?.overview ?? '',
+                        style: GoogleFonts.lato(
+                          textStyle: const TextStyle(fontSize: 16),
+                        ),
                       ),
                       const SizedBox(
-                        height: 16,
+                        height: 25,
                       ),
-                      LikeButton(
-                          icon: Icons.favorite,
-                          onPressed: () {
-                            favoritesViewModel
-                                .toggleFavorite(viewModel.state.movieDetails!);
-                          })
+
+                      //LikeButton(),
+
+                      const SizedBox(child: Text('Her er en Like button :-)')),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      Text(
+                        'The popularity of ${viewModel.state.movieDetails!.title}: ${viewModel.state.movieDetails?.popularity}',
+                        style: GoogleFonts.quicksand(
+                          textStyle: const TextStyle(
+                            fontSize: 16,
+                            color: Color(0xFFFF5252),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 100,
+                      ),
                     ],
                   ),
                 ),

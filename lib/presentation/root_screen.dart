@@ -14,7 +14,7 @@ class _RootScreenState extends State<RootScreen> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
-    FavoriteScreen()
+    FavoritesScreen()
   ];
 
   void _onItemTapped(int index) {

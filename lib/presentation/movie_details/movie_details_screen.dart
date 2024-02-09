@@ -93,7 +93,7 @@ class _MovieDetailsScreenContent extends StatelessWidget {
 
                       //LikeButton(),
 
-                      const SizedBox(child: Text('Her er en Like button :-)')),
+                      //const SizedBox(child: IconButton(onPressed: onPressed, icon: icon),),
                       const SizedBox(
                         height: 40,
                       ),

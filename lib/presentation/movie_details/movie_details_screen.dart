@@ -109,7 +109,6 @@ class _MovieDetailsScreenContent extends StatelessWidget {
 
                       FavoriteButton(
                         onPressedToFa: () async {
-                          print('test');
                           await viewModel.addToFavorites();
                         },
                       ),
@@ -117,7 +116,7 @@ class _MovieDetailsScreenContent extends StatelessWidget {
                       //const SizedBox(child: IconButton(onPressed: onPressed, icon: icon),),
 
                       const SizedBox(
-                        height: 40,
+                        height: 48,
                       ),
                       Text(
                         'The Release Date: ${viewModel.state.movieDetails?.releaseDate}',

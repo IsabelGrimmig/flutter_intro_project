@@ -22,7 +22,12 @@ class HomeScreen extends StatelessWidget {
           toolbarHeight: 100,
           backgroundColor: const Color(0xFFE9265E),
           foregroundColor: Colors.white,
-          title: const Text('M O N T A   movies'),
+          title: Text(
+            'M O N T A   movies',
+            style: GoogleFonts.quicksand(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           centerTitle: true,
         ),
         body: SingleChildScrollView(

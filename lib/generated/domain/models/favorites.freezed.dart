@@ -22,6 +22,8 @@ Favorites _$FavoritesFromJson(Map<String, dynamic> json) {
 mixin _$Favorites {
   @JsonKey(name: 'favorites')
   List<MovieDetails> get favorites => throw _privateConstructorUsedError;
+  @JsonKey(name: 'favorites')
+  set favorites(List<MovieDetails> value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -87,7 +89,7 @@ class __$$FavoritesImplCopyWithImpl<$Res>
   }) {
     return _then(_$FavoritesImpl(
       favorites: null == favorites
-          ? _value._favorites
+          ? _value.favorites
           : favorites // ignore: cast_nullable_to_non_nullable
               as List<MovieDetails>,
     ));
@@ -98,41 +100,19 @@ class __$$FavoritesImplCopyWithImpl<$Res>
 
 @JsonSerializable(fieldRename: FieldRename.snake, createToJson: true)
 class _$FavoritesImpl implements _Favorites {
-  const _$FavoritesImpl(
-      {@JsonKey(name: 'favorites')
-      final List<MovieDetails> favorites = const []})
-      : _favorites = favorites;
+  _$FavoritesImpl({@JsonKey(name: 'favorites') this.favorites = const []});
 
   factory _$FavoritesImpl.fromJson(Map<String, dynamic> json) =>
       _$$FavoritesImplFromJson(json);
 
-  final List<MovieDetails> _favorites;
   @override
   @JsonKey(name: 'favorites')
-  List<MovieDetails> get favorites {
-    if (_favorites is EqualUnmodifiableListView) return _favorites;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_favorites);
-  }
+  List<MovieDetails> favorites;
 
   @override
   String toString() {
     return 'Favorites(favorites: $favorites)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FavoritesImpl &&
-            const DeepCollectionEquality()
-                .equals(other._favorites, _favorites));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_favorites));
 
   @JsonKey(ignore: true)
   @override
@@ -149,8 +129,8 @@ class _$FavoritesImpl implements _Favorites {
 }
 
 abstract class _Favorites implements Favorites {
-  const factory _Favorites(
-          {@JsonKey(name: 'favorites') final List<MovieDetails> favorites}) =
+  factory _Favorites(
+          {@JsonKey(name: 'favorites') List<MovieDetails> favorites}) =
       _$FavoritesImpl;
 
   factory _Favorites.fromJson(Map<String, dynamic> json) =
@@ -159,6 +139,8 @@ abstract class _Favorites implements Favorites {
   @override
   @JsonKey(name: 'favorites')
   List<MovieDetails> get favorites;
+  @JsonKey(name: 'favorites')
+  set favorites(List<MovieDetails> value);
   @override
   @JsonKey(ignore: true)
   _$$FavoritesImplCopyWith<_$FavoritesImpl> get copyWith =>

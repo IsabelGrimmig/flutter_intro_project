@@ -5,10 +5,10 @@ import 'movie_details.dart';
 part '../../generated/domain/models/favorites.freezed.dart';
 part '../../generated/domain/models/favorites.g.dart';
 
-@freezed
+@unfreezed
 class Favorites with _$Favorites {
   @JsonSerializable(fieldRename: FieldRename.snake, createToJson: true)
-  const factory Favorites({
+  factory Favorites({
     @JsonKey(name: 'favorites') @Default([]) List<MovieDetails> favorites,
   }) = _Favorites;
 

@@ -9,7 +9,13 @@ class FavoriteButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onPressedToFa,
-      child: const Icon(Icons.add),
+      child: const Icon(
+        Icons.favorite,
+        color: Color(
+          0xFFFF5252,
+        ),
+        size: 32,
+      ),
     );
   }
 }

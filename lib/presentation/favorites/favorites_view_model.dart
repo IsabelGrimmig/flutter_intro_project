@@ -13,7 +13,7 @@ class FavoriteViewModel extends BaseViewModel<FavoritesUIState> {
   Future<void> _init() async {
     final favorites = await getIt<LocalStorage>().getFavorites();
 
-    setState(state.copyWith(favoriteMovies: favorites.favorites));
+    setState(state.copyWith(favoriteMovies: favorites));
   }
 
   Future<void> addFavorite(MovieDetails movieDetails) async {

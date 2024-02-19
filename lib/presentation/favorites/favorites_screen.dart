@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:retrofit/http.dart';
 
 import 'favorites_view_model.dart';
 
@@ -32,15 +34,25 @@ class _FavoritesScreenContent extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.all(20),
-          child: Text('You have '
-              '${viewModel.state.favoriteMovies.length} favorites:'),
+          child: Text(
+            'You have '
+            '${viewModel.state.favoriteMovies.length} favorites',
+            style: GoogleFonts.quicksand(fontSize: 24),
+          ),
         ),
         ...viewModel.state.favoriteMovies.map(
           (movie) => ListTile(
-            leading: const Icon(Icons.favorite),
-            title: Text(movie.title ?? ''),
+            leading: const Icon(
+              Icons.favorite,
+              color: Color(0xFFE9265E),
+            ),
+            title: Text(
+              movie.title ?? '',
+              style: GoogleFonts.quicksand(fontSize: 18),
+            ),
+            onTap: () {},
           ),
-        )
+        ),
       ],
     );
   }

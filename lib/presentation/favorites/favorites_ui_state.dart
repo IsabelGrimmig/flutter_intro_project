@@ -9,5 +9,5 @@ class FavoritesUIState {
   FavoritesUIState copyWith({
     List<MovieDetails>? favoriteMovies,
   }) =>
-      const FavoritesUIState();
+      FavoritesUIState(favoriteMovies: favoriteMovies ?? this.favoriteMovies);
 }

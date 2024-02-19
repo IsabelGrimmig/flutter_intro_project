@@ -9,16 +9,19 @@ import '../../domain/models/movie_details.dart';
 class LocalStorage {
   LocalStorage();
   final String prefsFavorites = 'intro-project-favorites';
-  final Favorites _favorites = const Favorites();
 
   final Future<SharedPreferences> sharedPrefInstance =
       SharedPreferences.getInstance();
 
   Future<void> initialize() async {
-    String savedFavorites = await getString(prefsFavorites);
+    final savedFavorites = await getString(prefsFavorites);
     if (savedFavorites.isEmpty) {
       await setString(
-          key: prefsFavorites, value: json.encode(_favorites.toJson()));
+        key: prefsFavorites,
+        value: json.encode(
+          Favorites().toJson(),
+        ),
+      );
     }
   }
 
@@ -52,17 +55,35 @@ class LocalStorage {
   Future<void> addFavorite({
     required MovieDetails movie,
   }) async {
-    String faves = await getString(prefsFavorites);
-    print(faves);
-    Favorites favorites = Favorites.fromJson(json.decode(faves));
-    favorites.favorites.add(movie);
+    final faves = await getString(prefsFavorites);
+    final favoritesWrapper = Favorites.fromJson(json.decode(faves));
+    for (var favorite in favoritesWrapper.favorites) {
+      if (favorite.id == movie.id) {
+        return;
+      }
+    }
+    favoritesWrapper.favorites.add(movie);
     await setString(
-        key: prefsFavorites, value: json.encode(favorites.toJson()));
+        key: prefsFavorites, value: json.encode(favoritesWrapper.toJson()));
   }
 
-  Future<Favorites> getFavorites() async {
-    String faves = await getString(prefsFavorites);
-    Favorites favorites = Favorites.fromJson(json.decode(faves));
-    return favorites;
+  Future<List<MovieDetails>> getFavorites() async {
+    final faves = await getString(prefsFavorites);
+    final favoritesWrapper = Favorites.fromJson(json.decode(faves));
+
+    return favoritesWrapper.favorites;
+  }
+
+  Future<List<MovieDetails>> removeFavorites({
+    required int movieId,
+  }) async {
+    final faves = await getFavorites();
+    faves.removeWhere((movie) => movie.id == movieId);
+    await setString(
+      key: prefsFavorites,
+      value: json.encode(Favorites(favorites: faves).toJson()),
+    );
+
+    return getFavorites();
   }
 }

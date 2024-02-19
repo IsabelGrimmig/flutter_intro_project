@@ -30,7 +30,6 @@ class MovieHorizontalListView extends StatelessWidget {
                       ),
                     ),
                   );
-                  print(movie.id);
                 },
                 child: Card(
                   shape: RoundedRectangleBorder(

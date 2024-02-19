@@ -6,6 +6,8 @@ class MovieDetailsUIState {
   });
   final MovieDetails? movieDetails;
 
+  get addToFavorites => null;
+
   MovieDetailsUIState copyWith({
     MovieDetails? movieDetails,
   }) =>

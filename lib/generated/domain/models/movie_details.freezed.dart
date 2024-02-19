@@ -34,6 +34,14 @@ mixin _$MovieDetails {
   double get popularity => throw _privateConstructorUsedError;
   @JsonKey(name: 'poster_path')
   String? get posterPath => throw _privateConstructorUsedError;
+  @JsonKey(name: 'tagline')
+  String? get tagline => throw _privateConstructorUsedError;
+  @JsonKey(name: 'status')
+  String? get status => throw _privateConstructorUsedError;
+  @JsonKey(name: 'release_date')
+  String? get releaseDate => throw _privateConstructorUsedError;
+  @JsonKey(name: 'runtime')
+  int get runtime => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -54,7 +62,11 @@ abstract class $MovieDetailsCopyWith<$Res> {
       @JsonKey(name: 'original_language') String? originalLanguage,
       @JsonKey(name: 'overview') String? overview,
       @JsonKey(name: 'popularity') double popularity,
-      @JsonKey(name: 'poster_path') String? posterPath});
+      @JsonKey(name: 'poster_path') String? posterPath,
+      @JsonKey(name: 'tagline') String? tagline,
+      @JsonKey(name: 'status') String? status,
+      @JsonKey(name: 'release_date') String? releaseDate,
+      @JsonKey(name: 'runtime') int runtime});
 }
 
 /// @nodoc
@@ -77,6 +89,10 @@ class _$MovieDetailsCopyWithImpl<$Res, $Val extends MovieDetails>
     Object? overview = freezed,
     Object? popularity = null,
     Object? posterPath = freezed,
+    Object? tagline = freezed,
+    Object? status = freezed,
+    Object? releaseDate = freezed,
+    Object? runtime = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -107,6 +123,22 @@ class _$MovieDetailsCopyWithImpl<$Res, $Val extends MovieDetails>
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
               as String?,
+      tagline: freezed == tagline
+          ? _value.tagline
+          : tagline // ignore: cast_nullable_to_non_nullable
+              as String?,
+      status: freezed == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String?,
+      releaseDate: freezed == releaseDate
+          ? _value.releaseDate
+          : releaseDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      runtime: null == runtime
+          ? _value.runtime
+          : runtime // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -126,7 +158,11 @@ abstract class _$$MovieDetailsImplCopyWith<$Res>
       @JsonKey(name: 'original_language') String? originalLanguage,
       @JsonKey(name: 'overview') String? overview,
       @JsonKey(name: 'popularity') double popularity,
-      @JsonKey(name: 'poster_path') String? posterPath});
+      @JsonKey(name: 'poster_path') String? posterPath,
+      @JsonKey(name: 'tagline') String? tagline,
+      @JsonKey(name: 'status') String? status,
+      @JsonKey(name: 'release_date') String? releaseDate,
+      @JsonKey(name: 'runtime') int runtime});
 }
 
 /// @nodoc
@@ -147,6 +183,10 @@ class __$$MovieDetailsImplCopyWithImpl<$Res>
     Object? overview = freezed,
     Object? popularity = null,
     Object? posterPath = freezed,
+    Object? tagline = freezed,
+    Object? status = freezed,
+    Object? releaseDate = freezed,
+    Object? runtime = null,
   }) {
     return _then(_$MovieDetailsImpl(
       id: null == id
@@ -177,6 +217,22 @@ class __$$MovieDetailsImplCopyWithImpl<$Res>
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
               as String?,
+      tagline: freezed == tagline
+          ? _value.tagline
+          : tagline // ignore: cast_nullable_to_non_nullable
+              as String?,
+      status: freezed == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String?,
+      releaseDate: freezed == releaseDate
+          ? _value.releaseDate
+          : releaseDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      runtime: null == runtime
+          ? _value.runtime
+          : runtime // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -192,7 +248,11 @@ class _$MovieDetailsImpl with DiagnosticableTreeMixin implements _MovieDetails {
       @JsonKey(name: 'original_language') this.originalLanguage,
       @JsonKey(name: 'overview') this.overview,
       @JsonKey(name: 'popularity') required this.popularity,
-      @JsonKey(name: 'poster_path') this.posterPath});
+      @JsonKey(name: 'poster_path') this.posterPath,
+      @JsonKey(name: 'tagline') this.tagline,
+      @JsonKey(name: 'status') this.status,
+      @JsonKey(name: 'release_date') this.releaseDate,
+      @JsonKey(name: 'runtime') required this.runtime});
 
   factory _$MovieDetailsImpl.fromJson(Map<String, dynamic> json) =>
       _$$MovieDetailsImplFromJson(json);
@@ -218,10 +278,22 @@ class _$MovieDetailsImpl with DiagnosticableTreeMixin implements _MovieDetails {
   @override
   @JsonKey(name: 'poster_path')
   final String? posterPath;
+  @override
+  @JsonKey(name: 'tagline')
+  final String? tagline;
+  @override
+  @JsonKey(name: 'status')
+  final String? status;
+  @override
+  @JsonKey(name: 'release_date')
+  final String? releaseDate;
+  @override
+  @JsonKey(name: 'runtime')
+  final int runtime;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'MovieDetails(id: $id, title: $title, imdbId: $imdbId, originalLanguage: $originalLanguage, overview: $overview, popularity: $popularity, posterPath: $posterPath)';
+    return 'MovieDetails(id: $id, title: $title, imdbId: $imdbId, originalLanguage: $originalLanguage, overview: $overview, popularity: $popularity, posterPath: $posterPath, tagline: $tagline, status: $status, releaseDate: $releaseDate, runtime: $runtime)';
   }
 
   @override
@@ -235,7 +307,11 @@ class _$MovieDetailsImpl with DiagnosticableTreeMixin implements _MovieDetails {
       ..add(DiagnosticsProperty('originalLanguage', originalLanguage))
       ..add(DiagnosticsProperty('overview', overview))
       ..add(DiagnosticsProperty('popularity', popularity))
-      ..add(DiagnosticsProperty('posterPath', posterPath));
+      ..add(DiagnosticsProperty('posterPath', posterPath))
+      ..add(DiagnosticsProperty('tagline', tagline))
+      ..add(DiagnosticsProperty('status', status))
+      ..add(DiagnosticsProperty('releaseDate', releaseDate))
+      ..add(DiagnosticsProperty('runtime', runtime));
   }
 
   @override
@@ -253,13 +329,29 @@ class _$MovieDetailsImpl with DiagnosticableTreeMixin implements _MovieDetails {
             (identical(other.popularity, popularity) ||
                 other.popularity == popularity) &&
             (identical(other.posterPath, posterPath) ||
-                other.posterPath == posterPath));
+                other.posterPath == posterPath) &&
+            (identical(other.tagline, tagline) || other.tagline == tagline) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.releaseDate, releaseDate) ||
+                other.releaseDate == releaseDate) &&
+            (identical(other.runtime, runtime) || other.runtime == runtime));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, imdbId,
-      originalLanguage, overview, popularity, posterPath);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      title,
+      imdbId,
+      originalLanguage,
+      overview,
+      popularity,
+      posterPath,
+      tagline,
+      status,
+      releaseDate,
+      runtime);
 
   @JsonKey(ignore: true)
   @override
@@ -283,7 +375,11 @@ abstract class _MovieDetails implements MovieDetails {
           @JsonKey(name: 'original_language') final String? originalLanguage,
           @JsonKey(name: 'overview') final String? overview,
           @JsonKey(name: 'popularity') required final double popularity,
-          @JsonKey(name: 'poster_path') final String? posterPath}) =
+          @JsonKey(name: 'poster_path') final String? posterPath,
+          @JsonKey(name: 'tagline') final String? tagline,
+          @JsonKey(name: 'status') final String? status,
+          @JsonKey(name: 'release_date') final String? releaseDate,
+          @JsonKey(name: 'runtime') required final int runtime}) =
       _$MovieDetailsImpl;
 
   factory _MovieDetails.fromJson(Map<String, dynamic> json) =
@@ -310,6 +406,18 @@ abstract class _MovieDetails implements MovieDetails {
   @override
   @JsonKey(name: 'poster_path')
   String? get posterPath;
+  @override
+  @JsonKey(name: 'tagline')
+  String? get tagline;
+  @override
+  @JsonKey(name: 'status')
+  String? get status;
+  @override
+  @JsonKey(name: 'release_date')
+  String? get releaseDate;
+  @override
+  @JsonKey(name: 'runtime')
+  int get runtime;
   @override
   @JsonKey(ignore: true)
   _$$MovieDetailsImplCopyWith<_$MovieDetailsImpl> get copyWith =>

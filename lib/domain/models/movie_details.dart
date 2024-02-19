@@ -15,6 +15,10 @@ class MovieDetails with _$MovieDetails {
     @JsonKey(name: 'overview') String? overview,
     @JsonKey(name: 'popularity') required double popularity,
     @JsonKey(name: 'poster_path') String? posterPath,
+    @JsonKey(name: 'tagline') String? tagline,
+    @JsonKey(name: 'status') String? status,
+    @JsonKey(name: 'release_date') String? releaseDate,
+    @JsonKey(name: 'runtime') required int runtime,
   }) = _MovieDetails;
 
   factory MovieDetails.fromJson(Map<String, dynamic> json) =>

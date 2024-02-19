@@ -2,9 +2,9 @@ import '../../domain/models/movie_details.dart';
 
 class FavoritesUIState {
   const FavoritesUIState({
-    this.favoriteMovies,
+    this.favoriteMovies = const [],
   });
-  final MovieDetails? favoriteMovies;
+  final List<MovieDetails> favoriteMovies;
 
   FavoritesUIState copyWith({
     List<MovieDetails>? favoriteMovies,

@@ -5,6 +5,7 @@ import '../widgets/movie_horizontal_list_view.dart';
 import '../widgets/movie_slider.dart';
 import '../widgets/trending_slider.dart';
 import 'home_view_model.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -33,11 +34,13 @@ class HomeScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Trending movies',
-                        style: TextStyle(
-                          color: Color(0xFFFF5252),
-                          fontSize: 25,
-                        )),
+                    const Text(
+                      'Trending movies',
+                      style: TextStyle(
+                        color: Color(0xFFFF5252),
+                        fontSize: 25,
+                      ),
+                    ),
                     const SizedBox(height: 20),
                     const TrendingSlider(),
                     const SizedBox(

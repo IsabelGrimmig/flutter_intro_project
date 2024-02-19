@@ -15,6 +15,10 @@ _$MovieDetailsImpl _$$MovieDetailsImplFromJson(Map<String, dynamic> json) =>
       overview: json['overview'] as String?,
       popularity: (json['popularity'] as num).toDouble(),
       posterPath: json['poster_path'] as String?,
+      tagline: json['tagline'] as String?,
+      status: json['status'] as String?,
+      releaseDate: json['release_date'] as String?,
+      runtime: json['runtime'] as int,
     );
 
 Map<String, dynamic> _$$MovieDetailsImplToJson(_$MovieDetailsImpl instance) =>
@@ -26,4 +30,8 @@ Map<String, dynamic> _$$MovieDetailsImplToJson(_$MovieDetailsImpl instance) =>
       'overview': instance.overview,
       'popularity': instance.popularity,
       'poster_path': instance.posterPath,
+      'tagline': instance.tagline,
+      'status': instance.status,
+      'release_date': instance.releaseDate,
+      'runtime': instance.runtime,
     };

@@ -23,11 +23,13 @@ class MovieHorizontalListView extends StatelessWidget {
               (movie) => GestureDetector(
                 onTap: () {
                   Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => MovieDetailsScreen(
-                                id: movie.id,
-                              )));
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MovieDetailsScreen(
+                        id: movie.id,
+                      ),
+                    ),
+                  );
                   print(movie.id);
                 },
                 child: Card(

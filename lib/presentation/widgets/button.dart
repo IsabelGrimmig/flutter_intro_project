@@ -36,17 +36,3 @@ class BackButton extends StatelessWidget {
     );
   }
 }
-
-class LikeButton extends StatelessWidget {
-  const LikeButton({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () async => showPopover(
-        context: context,
-        bodyBuilder: (context) => const LikeButton(),
-      ),
-    );
-  }
-}

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_it/get_it.dart';
+import 'data/repositories/local_storage.dart';
 import 'dependencies/dependencies.dart';
 import 'presentation/root_screen.dart';
 
@@ -8,6 +9,7 @@ final getIt = GetIt.instance;
 void main() async {
   await dotenv.load(fileName: '.env');
   registerDataDependencies();
+  await getIt<LocalStorage>().initialize();
 
   runApp(const MyApp());
 }

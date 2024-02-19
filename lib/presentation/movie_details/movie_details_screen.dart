@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:like_button/like_button.dart';
 import 'package:provider/provider.dart';
 
-import '../widgets/button.dart';
+import '../widgets/favorite_button.dart';
 import 'movie_details_view_model.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
@@ -42,6 +42,7 @@ class _MovieDetailsScreenContent extends StatelessWidget {
                   background: Image(
                     image: NetworkImage(
                       '$baseImageUrl${viewModel.state.movieDetails?.posterPath}',
+
                       //fit: BoxFit.cover,
                     ),
                   ),
@@ -50,7 +51,8 @@ class _MovieDetailsScreenContent extends StatelessWidget {
               ),
               SliverToBoxAdapter(
                 child: Padding(
-                  padding: const EdgeInsets.all(5),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -64,14 +66,28 @@ class _MovieDetailsScreenContent extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        'Original Language:${viewModel.state.movieDetails!.originalLanguage}',
+                        'The status of the movie: ${viewModel.state.movieDetails?.status}',
+                        style: GoogleFonts.lato(
+                          fontSize: 16,
+                          color: const Color(0xFFE9265E),
+                        ),
+                      ),
+                      Text(
+                        'Original Language:${viewModel.state.movieDetails?.originalLanguage}',
                         style: const TextStyle(
-                          fontSize: 12,
+                          fontSize: 14,
                           color: Color(0xFFFF5252),
                         ),
                       ),
                       const SizedBox(
-                        height: 20,
+                        height: 32,
+                      ),
+                      Text(
+                        'Taglines for the movie: ${viewModel.state.movieDetails?.tagline}',
+                        style: GoogleFonts.lato(),
+                      ),
+                      const SizedBox(
+                        height: 24,
                       ),
                       Text(
                         'Movie overview:',
@@ -91,18 +107,30 @@ class _MovieDetailsScreenContent extends StatelessWidget {
                         height: 25,
                       ),
 
-                      //LikeButton(),
+                      FavoriteButton(
+                        onPressedToFa: () async {
+                          print('test');
+                          await viewModel.addToFavorites();
+                        },
+                      ),
 
                       //const SizedBox(child: IconButton(onPressed: onPressed, icon: icon),),
+
                       const SizedBox(
                         height: 40,
                       ),
                       Text(
-                        'The popularity of ${viewModel.state.movieDetails!.title}: ${viewModel.state.movieDetails?.popularity}',
-                        style: GoogleFonts.quicksand(
+                        'The Release Date: ${viewModel.state.movieDetails?.releaseDate}',
+                        style: GoogleFonts.lato(
+                          fontSize: 12,
+                          color: const Color(0xFFFFA8A0),
+                        ),
+                      ),
+                      Text(
+                        'The popularity of ${viewModel.state.movieDetails?.title}: ${viewModel.state.movieDetails?.popularity}',
+                        style: GoogleFonts.lato(
                           textStyle: const TextStyle(
                             fontSize: 16,
-                            color: Color(0xFFFF5252),
                           ),
                         ),
                       ),

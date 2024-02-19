@@ -31,6 +31,8 @@ dependencies:
   like_button: ^2.0.5
   path: ^1.8.3
   path_provider: ^2.1.2
+  shared_preferences: ^2.2.2
+  icons_plus: ^5.0.0
 
 dev_dependencies:
   flutter_test:

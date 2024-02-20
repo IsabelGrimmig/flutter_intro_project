@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:icons_plus/icons_plus.dart';
 
 class FavoriteButton extends StatelessWidget {
   const FavoriteButton({super.key, required this.onPressedToFa});
@@ -7,15 +6,14 @@ class FavoriteButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onPressedToFa,
-      child: const Icon(
-        Icons.favorite,
-        color: Color(
-          0xFFFF5252,
-        ),
-        size: 32,
+    return TextButton.icon(
+      style: TextButton.styleFrom(
+        foregroundColor: const Color(0xFFE9265E),
+        textStyle: const TextStyle(fontSize: 12),
       ),
+      icon: const Icon(Icons.favorite),
+      onPressed: onPressedToFa,
+      label: const Text('Add to favorites'),
     );
   }
 }

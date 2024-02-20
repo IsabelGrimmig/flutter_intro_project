@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../widgets/button.dart';
 import '../widgets/movie_horizontal_list_view.dart';
-import '../widgets/movie_slider.dart';
 import '../widgets/trending_slider.dart';
 import 'home_view_model.dart';
 import 'package:google_fonts/google_fonts.dart';

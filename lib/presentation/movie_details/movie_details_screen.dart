@@ -29,7 +29,7 @@ class _MovieDetailsScreenContent extends StatelessWidget {
   Widget build(BuildContext context) {
     final baseImageUrl = dotenv.env['IMAGE_URL'].toString();
     return Consumer<MovieDetailsViewModel>(
-      builder: (context, viewModel, _) {
+      builder: (context, viewModel, child) {
         return Scaffold(
           body: CustomScrollView(
             slivers: <Widget>[
@@ -41,8 +41,6 @@ class _MovieDetailsScreenContent extends StatelessWidget {
                   background: Image(
                     image: NetworkImage(
                       '$baseImageUrl${viewModel.state.movieDetails?.posterPath}',
-
-                      //fit: BoxFit.cover,
                     ),
                   ),
                 ),
@@ -63,6 +61,17 @@ class _MovieDetailsScreenContent extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
+                      ),
+                      FavoriteButton(
+                        onPressedToAdd: () async {
+                          await viewModel.addToFavorites();
+                        },
+                        onPressedToRemove: () async {
+                          await viewModel.removeFromFavorites();
+                        },
+                      ),
+                      const SizedBox(
+                        height: 32,
                       ),
                       Text(
                         'The status of the movie: ${viewModel.state.movieDetails?.status}',
@@ -105,15 +114,6 @@ class _MovieDetailsScreenContent extends StatelessWidget {
                       const SizedBox(
                         height: 25,
                       ),
-
-                      FavoriteButton(
-                        onPressedToFa: () async {
-                          await viewModel.addToFavorites();
-                        },
-                      ),
-
-                      //const SizedBox(child: IconButton(onPressed: onPressed, icon: icon),),
-
                       const SizedBox(
                         height: 48,
                       ),

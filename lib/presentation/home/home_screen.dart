@@ -46,7 +46,9 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 20),
-                    const TrendingSlider(),
+                    TrendingSlider(
+                      movies: viewModel.state.popularMovies,
+                    ),
                     const SizedBox(
                       height: 20,
                     ),

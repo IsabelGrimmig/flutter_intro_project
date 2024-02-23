@@ -52,9 +52,6 @@ class HomeScreen extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
-                    MovieHorizontalListView(
-                      movies: viewModel.state.popularMovies,
-                    ),
                     const SizedBox(
                       height: 30,
                     ),

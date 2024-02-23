@@ -42,9 +42,21 @@ class _FavoritesScreenContent extends StatelessWidget {
         ),
         ...viewModel.state.favoriteMovies.map(
           (movie) => ListTile(
-            leading: const Icon(
-              Icons.favorite,
-              color: Color(0xFFE9265E),
+            leading: IconButton(
+              icon: Icon(
+                viewModel.state.favoriteMovies.any((m) => m.id == movie.id)
+                    ? Icons.favorite
+                    : Icons.favorite_border,
+                color: const Color(0xFFE9265E),
+              ),
+              onPressed: () async {
+                if (viewModel.state.favoriteMovies
+                    .any((m) => m.id == movie.id)) {
+                  await viewModel.removeFavorite(movie.id);
+                } else {
+                  await viewModel.addFavorite(movie);
+                }
+              },
             ),
             title: Text(movie.posterPath ?? ''),
             subtitle: Column(

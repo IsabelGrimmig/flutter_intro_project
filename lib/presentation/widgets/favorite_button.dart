@@ -25,13 +25,11 @@ class _FavoriteButtonState extends State<FavoriteButton> {
   }
 
   void toggleFavorite() {
-    print('før isFavorite');
     setState(
       () {
         isFavorite = !isFavorite;
       },
     );
-    print('efter is favorite');
     if (isFavorite) {
       widget.onPressedToAdd();
     } else {

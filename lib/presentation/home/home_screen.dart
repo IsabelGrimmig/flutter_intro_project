@@ -33,53 +33,63 @@ class HomeScreen extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           child: Consumer<HomeViewModel>(
             builder: (context, viewModel, _) {
-              return Padding(
-                padding: const EdgeInsets.all(8),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(left: 8, top: 16),
+                    child: Text(
                       'Trending movies',
                       style: TextStyle(
                         color: Color(0xFFFF5252),
-                        fontSize: 25,
+                        fontSize: 24,
                       ),
                     ),
-                    const SizedBox(height: 20),
-                    TrendingSlider(
-                      movies: viewModel.state.popularMovies,
+                  ),
+                  const SizedBox(height: 20),
+                  TrendingSlider(
+                    movies: viewModel.state.popularMovies,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(
+                      left: 8,
                     ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    const Text(
+                    child: Text(
                       'Top rated movies',
                       style: TextStyle(
                         color: Color(0xFFFF5252),
-                        fontSize: 25,
+                        fontSize: 24,
                       ),
                     ),
-                    MovieHorizontalListView(
-                      movies: viewModel.state.topRatedMovies,
+                  ),
+                  MovieHorizontalListView(
+                    movies: viewModel.state.topRatedMovies,
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(
+                      left: 8,
                     ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    const Text(
+                    child: Text(
                       'Up-coming movies',
                       style: TextStyle(
                         color: Color(0xFFFF5252),
                         fontSize: 25,
                       ),
                     ),
-                    MovieHorizontalListView(
-                      movies: viewModel.state.upcomingMovies,
-                    ),
-                  ],
-                ),
+                  ),
+                  MovieHorizontalListView(
+                    movies: viewModel.state.upcomingMovies,
+                  ),
+                ],
               );
             },
           ),

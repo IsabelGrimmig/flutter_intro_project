@@ -33,7 +33,7 @@ class MovieDetailsViewModel extends BaseViewModel<MovieDetailsUIState> {
   Future<void> removeFromFavorites() async {
     if (state.movieDetails != null) {
       await getIt<LocalStorage>()
-          .removeFavorites(movieId: state.movieDetails!.id);
+          .removeFavorite(movieId: state.movieDetails!.id);
     }
   }
 

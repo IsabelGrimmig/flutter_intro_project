@@ -73,7 +73,7 @@ class LocalStorage {
     return favoritesWrapper.favorites;
   }
 
-  Future<List<MovieDetails>> removeFavorites({
+  Future<List<MovieDetails>> removeFavorite({
     required int movieId,
   }) async {
     final faves = await getFavorites();
@@ -84,5 +84,14 @@ class LocalStorage {
     );
 
     return getFavorites();
+  }
+
+  Future<bool> isMovieLiked(int movieId) async {
+    final faves = await getString(prefsFavorites);
+    if (faves.isEmpty) {
+      return false;
+    }
+    final favoritesWrapper = Favorites.fromJson(json.decode(faves));
+    return favoritesWrapper.favorites.any((movie) => movie.id == movieId);
   }
 }

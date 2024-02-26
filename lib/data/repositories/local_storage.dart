@@ -56,7 +56,7 @@ class LocalStorage {
   }) async {
     final faves = await getString(prefsFavorites);
     final favoritesWrapper = Favorites.fromJson(json.decode(faves));
-    for (var favorite in favoritesWrapper.favorites) {
+    for (final favorite in favoritesWrapper.favorites) {
       if (favorite.id == movie.id) {
         return;
       }

@@ -4,6 +4,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../domain/models/movie_preview.dart';
+import '../movie_details/movie_details_screen.dart';
 
 class TrendingSlider extends StatelessWidget {
   const TrendingSlider({
@@ -36,13 +37,25 @@ class TrendingSlider extends StatelessWidget {
               ) {
                 final movie = movies![itemIndex];
 
-                return ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  child: Image.network(
-                    '$baseImageUrl${movie.posterPath}',
-                    height: 300,
-                    width: 200,
-                    fit: BoxFit.cover,
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MovieDetailsScreen(
+                          id: movie.id,
+                        ),
+                      ),
+                    );
+                  },
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(15),
+                    child: Image.network(
+                      '$baseImageUrl${movie.posterPath}',
+                      height: 300,
+                      width: 200,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 );
               },

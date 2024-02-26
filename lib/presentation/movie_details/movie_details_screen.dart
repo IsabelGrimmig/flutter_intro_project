@@ -37,7 +37,7 @@ class _MovieDetailsScreenContent extends StatelessWidget {
               SliverAppBar(
                 pinned: true,
                 stretch: true,
-                expandedHeight: 585,
+                expandedHeight: 586,
                 flexibleSpace: FlexibleSpaceBar(
                   background: Image(
                     image: NetworkImage(

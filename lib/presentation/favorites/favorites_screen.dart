@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -24,10 +25,16 @@ class _FavoritesScreenContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final viewModel = context.watch<FavoriteViewModel>();
+    final baseImageUrl = dotenv.env['IMAGE_URL'].toString();
 
     if (viewModel.state.favoriteMovies.isEmpty) {
-      return const Center(
-        child: Text('No favorites yet.'),
+      return Center(
+        child: Text(
+          'No favorites yet......',
+          style: GoogleFonts.quicksand(
+            fontSize: 32,
+          ),
+        ),
       );
     }
 
@@ -43,6 +50,9 @@ class _FavoritesScreenContent extends StatelessWidget {
         ),
         ...viewModel.state.favoriteMovies.map(
           (movie) => ListTile(
+            title: Image(
+              image: NetworkImage('$baseImageUrl${movie.posterPath}'),
+            ),
             leading: IconButton(
               icon: Icon(
                 viewModel.state.favoriteMovies.any((m) => m.id == movie.id)
@@ -59,7 +69,6 @@ class _FavoritesScreenContent extends StatelessWidget {
                 }
               },
             ),
-            title: Text(movie.posterPath ?? ''),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

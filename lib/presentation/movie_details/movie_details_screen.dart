@@ -3,6 +3,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
+import '../widgets/Monta_colors.dart';
 import '../widgets/favorite_button.dart';
 import 'movie_details_view_model.dart';
 
@@ -44,7 +45,7 @@ class _MovieDetailsScreenContent extends StatelessWidget {
                     ),
                   ),
                 ),
-                backgroundColor: const Color(0xFFE9265E),
+                backgroundColor: MontaColors.coral150,
               ),
               SliverToBoxAdapter(
                 child: Column(
@@ -59,7 +60,7 @@ class _MovieDetailsScreenContent extends StatelessWidget {
                         'The Status af the movie: ${viewModel.state.movieDetails?.status} ${viewModel.state.movieDetails?.releaseDate}',
                         style: GoogleFonts.lato(
                           fontSize: 12,
-                          color: const Color(0xFFFFA8A0),
+                          color: MontaColors.coral60,
                         ),
                       ),
                     ),
@@ -102,7 +103,7 @@ class _MovieDetailsScreenContent extends StatelessWidget {
                         style: GoogleFonts.lato(
                           textStyle: const TextStyle(
                             fontSize: 14,
-                            color: Color(0xFFFF5252),
+                            color: MontaColors.coral100,
                           ),
                         ),
                       ),
@@ -114,7 +115,7 @@ class _MovieDetailsScreenContent extends StatelessWidget {
                         style: GoogleFonts.lato(
                           textStyle: const TextStyle(
                             fontSize: 14,
-                            color: Color(0xFFFF5252),
+                            color: MontaColors.coral100,
                           ),
                         ),
                       ),
@@ -138,7 +139,8 @@ class _MovieDetailsScreenContent extends StatelessWidget {
                       child: Text(
                         'The vote average: ${viewModel.state.movieDetails?.voteAverage}',
                         style: GoogleFonts.lato(
-                            textStyle: const TextStyle(fontSize: 16)),
+                          textStyle: const TextStyle(fontSize: 16),
+                        ),
                       ),
                     ),
                     const SizedBox(

@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../movie_details/movie_details_screen.dart';
+import '../widgets/Monta_colors.dart';
 import 'favorites_view_model.dart';
 
 class FavoritesScreen extends StatelessWidget {
@@ -47,7 +48,7 @@ class _FavoritesScreenContent extends StatelessWidget {
                 viewModel.state.favoriteMovies.any((m) => m.id == movie.id)
                     ? Icons.favorite
                     : Icons.favorite_border,
-                color: const Color(0xFFE9265E),
+                color: MontaColors.coral150,
               ),
               onPressed: () async {
                 if (viewModel.state.favoriteMovies
@@ -66,7 +67,7 @@ class _FavoritesScreenContent extends StatelessWidget {
                   movie.title ?? '',
                   style: GoogleFonts.quicksand(
                     fontSize: 20,
-                    color: const Color(0xFFE9265E),
+                    color: MontaColors.coral150,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -79,7 +80,7 @@ class _FavoritesScreenContent extends StatelessWidget {
                 ),
                 Text(
                   'Movie popularyty: ${movie.popularity}',
-                  style: GoogleFonts.lato(color: const Color(0xFFFFA8A0)),
+                  style: GoogleFonts.lato(color: MontaColors.coral60),
                 ),
               ],
             ),

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import '../widgets/button.dart';
+import '../widgets/monta_colors.dart';
 import '../widgets/movie_horizontal_list_view.dart';
 import '../widgets/trending_slider.dart';
 import 'home_view_model.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -19,8 +21,8 @@ class HomeScreen extends StatelessWidget {
             SizedBox(width: 50, child: SearchButton()),
           ],
           toolbarHeight: 100,
-          backgroundColor: const Color(0xFFE9265E),
-          foregroundColor: Colors.white,
+          backgroundColor: MontaColors.coral150,
+          foregroundColor: MontaColors.sand10,
           title: Text(
             'M O N T A   movies',
             style: GoogleFonts.quicksand(
@@ -41,7 +43,7 @@ class HomeScreen extends StatelessWidget {
                     child: Text(
                       'Trending movies',
                       style: TextStyle(
-                        color: Color(0xFFFF5252),
+                        color: MontaColors.coral100,
                         fontSize: 24,
                       ),
                     ),
@@ -63,7 +65,7 @@ class HomeScreen extends StatelessWidget {
                     child: Text(
                       'Top rated movies',
                       style: TextStyle(
-                        color: Color(0xFFFF5252),
+                        color: MontaColors.coral100,
                         fontSize: 24,
                       ),
                     ),
@@ -81,7 +83,7 @@ class HomeScreen extends StatelessWidget {
                     child: Text(
                       'Up-coming movies',
                       style: TextStyle(
-                        color: Color(0xFFFF5252),
+                        color: MontaColors.coral100,
                         fontSize: 25,
                       ),
                     ),

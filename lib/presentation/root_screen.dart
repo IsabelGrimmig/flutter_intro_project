@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'favorites/favorites_screen.dart';
 import 'home/home_screen.dart';
+import 'widgets/Monta_colors.dart';
 
 class RootScreen extends StatefulWidget {
   const RootScreen({super.key});
@@ -30,7 +31,7 @@ class _RootScreenState extends State<RootScreen> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color(0xFFF4F2F1),
+        backgroundColor: MontaColors.sand40,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -42,7 +43,7 @@ class _RootScreenState extends State<RootScreen> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: const Color(0xFFE9265E),
+        selectedItemColor: MontaColors.coral150,
         onTap: _onItemTapped,
       ),
     );

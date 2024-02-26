@@ -42,7 +42,7 @@ class _FavoriteButtonState extends State<FavoriteButton> {
     return TextButton.icon(
       style: TextButton.styleFrom(
         foregroundColor: const Color(0xFFE9265E),
-        textStyle: const TextStyle(fontSize: 12),
+        textStyle: const TextStyle(fontSize: 20),
       ),
       icon: Icon(isFavorite ? Icons.favorite : Icons.favorite_border),
       onPressed: toggleFavorite,

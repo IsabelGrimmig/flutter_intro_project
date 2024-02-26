@@ -47,13 +47,33 @@ class _MovieDetailsScreenContent extends StatelessWidget {
                 backgroundColor: const Color(0xFFE9265E),
               ),
               SliverToBoxAdapter(
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(
+                      height: 1,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8, right: 8),
+                      child: Text(
+                        'The Status af the movie: ${viewModel.state.movieDetails?.status} ${viewModel.state.movieDetails?.releaseDate}',
+                        style: GoogleFonts.lato(
+                          fontSize: 12,
+                          color: const Color(0xFFFFA8A0),
+                        ),
+                      ),
+                    ),
+                    FavoriteButton(
+                      onPressedToAdd: () async {
+                        await viewModel.addToFavorites();
+                      },
+                      onPressedToRemove: () async {
+                        await viewModel.removeFromFavorites();
+                      },
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8, right: 8),
+                      child: Text(
                         viewModel.state.movieDetails?.title ?? '',
                         style: GoogleFonts.quicksand(
                           textStyle: const TextStyle(
@@ -62,81 +82,69 @@ class _MovieDetailsScreenContent extends StatelessWidget {
                           ),
                         ),
                       ),
-                      FavoriteButton(
-                        onPressedToAdd: () async {
-                          await viewModel.addToFavorites();
-                        },
-                        onPressedToRemove: () async {
-                          await viewModel.removeFromFavorites();
-                        },
-                      ),
-                      const SizedBox(
-                        height: 32,
-                      ),
-                      Text(
-                        'The status of the movie: ${viewModel.state.movieDetails?.status}',
-                        style: GoogleFonts.lato(
-                          fontSize: 16,
-                          color: const Color(0xFFE9265E),
-                        ),
-                      ),
-                      Text(
-                        'Original Language:${viewModel.state.movieDetails?.originalLanguage}',
-                        style: const TextStyle(
-                          fontSize: 14,
-                          color: Color(0xFFFF5252),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 32,
-                      ),
-                      Text(
-                        'Taglines for the movie: ${viewModel.state.movieDetails?.tagline}',
-                        style: GoogleFonts.lato(),
-                      ),
-                      const SizedBox(
-                        height: 24,
-                      ),
-                      Text(
-                        'Movie overview:',
-                        style: GoogleFonts.quicksand(
-                          textStyle: const TextStyle(
-                            fontSize: 22,
-                          ),
-                        ),
-                      ),
-                      Text(
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8, right: 8),
+                      child: Text(
                         viewModel.state.movieDetails?.overview ?? '',
                         style: GoogleFonts.lato(
                           textStyle: const TextStyle(fontSize: 16),
                         ),
                       ),
-                      const SizedBox(
-                        height: 25,
-                      ),
-                      const SizedBox(
-                        height: 48,
-                      ),
-                      Text(
-                        'The Release Date: ${viewModel.state.movieDetails?.releaseDate}',
+                    ),
+                    const SizedBox(
+                      height: 25,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8, right: 8),
+                      child: Text(
+                        'Original Language:${viewModel.state.movieDetails?.originalLanguage}',
                         style: GoogleFonts.lato(
-                          fontSize: 12,
-                          color: const Color(0xFFFFA8A0),
+                          textStyle: const TextStyle(
+                            fontSize: 14,
+                            color: Color(0xFFFF5252),
+                          ),
                         ),
                       ),
-                      Text(
-                        'The popularity of ${viewModel.state.movieDetails?.title}: ${viewModel.state.movieDetails?.popularity}',
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8, right: 8),
+                      child: Text(
+                        'The runtime of ${viewModel.state.movieDetails?.title} is ${viewModel.state.movieDetails?.runtime}',
+                        style: GoogleFonts.lato(
+                          textStyle: const TextStyle(
+                            fontSize: 14,
+                            color: Color(0xFFFF5252),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 48,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8, right: 8),
+                      child: Text(
+                        'Popularity of ${viewModel.state.movieDetails?.title}: ${viewModel.state.movieDetails?.popularity}',
                         style: GoogleFonts.lato(
                           textStyle: const TextStyle(
                             fontSize: 16,
                           ),
                         ),
                       ),
-                      const SizedBox(
-                        height: 100,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8, right: 8),
+                      child: Text(
+                        'The vote average: ${viewModel.state.movieDetails?.voteAverage}',
+                        style: GoogleFonts.lato(
+                            textStyle: const TextStyle(fontSize: 16)),
                       ),
-                    ],
-                  ),
+                    ),
+                    const SizedBox(
+                      height: 100,
+                    ),
+                  ],
                 ),
               ),
             ],

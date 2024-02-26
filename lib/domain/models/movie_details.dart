@@ -10,7 +10,6 @@ class MovieDetails with _$MovieDetails {
   const factory MovieDetails({
     @JsonKey(name: 'id') required int id,
     @JsonKey(name: 'title') String? title,
-    @JsonKey(name: 'imdb_id') String? imdbId,
     @JsonKey(name: 'original_language') String? originalLanguage,
     @JsonKey(name: 'overview') String? overview,
     @JsonKey(name: 'popularity') required double popularity,
@@ -19,6 +18,8 @@ class MovieDetails with _$MovieDetails {
     @JsonKey(name: 'status') String? status,
     @JsonKey(name: 'release_date') String? releaseDate,
     @JsonKey(name: 'runtime') required int runtime,
+    @JsonKey(name: 'vote_average') required num voteAverage,
+    @JsonKey(name: 'adult') required bool adult,
   }) = _MovieDetails;
 
   factory MovieDetails.fromJson(Map<String, dynamic> json) =>

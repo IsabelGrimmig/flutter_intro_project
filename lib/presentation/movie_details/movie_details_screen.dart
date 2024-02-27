@@ -40,11 +40,20 @@ class _MovieDetailsScreenContent extends StatelessWidget {
                 stretch: true,
                 expandedHeight: 586,
                 flexibleSpace: FlexibleSpaceBar(
-                  background: Image(
-                    image: NetworkImage(
-                      '$baseImageUrl${viewModel.state.movieDetails?.posterPath}',
-                    ),
-                  ),
+                  background: viewModel.state.movieDetails?.posterPath != null
+                      ? Image.network(
+                          '$baseImageUrl${viewModel.state.movieDetails?.posterPath}',
+                          fit: BoxFit.cover,
+                        )
+                      : Center(
+                          child: Text(
+                            'M O N T A movies',
+                            style: GoogleFonts.quicksand(
+                              color: MontaColors.sand10,
+                              fontSize: 24,
+                            ),
+                          ),
+                        ),
                 ),
                 backgroundColor: MontaColors.coral150,
               ),

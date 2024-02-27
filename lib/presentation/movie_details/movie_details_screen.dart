@@ -29,6 +29,7 @@ class _MovieDetailsScreenContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final baseImageUrl = dotenv.env['IMAGE_URL'].toString();
+
     return Consumer<MovieDetailsViewModel>(
       builder: (context, viewModel, child) {
         return Scaffold(
@@ -65,6 +66,7 @@ class _MovieDetailsScreenContent extends StatelessWidget {
                       ),
                     ),
                     FavoriteButton(
+                      isMovieLiked: viewModel.state.isMovieLiked,
                       onPressedToAdd: () async {
                         await viewModel.addToFavorites();
                       },

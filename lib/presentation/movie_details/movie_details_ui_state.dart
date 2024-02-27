@@ -3,15 +3,17 @@ import '../../domain/models/movie_details.dart';
 class MovieDetailsUIState {
   const MovieDetailsUIState({
     this.movieDetails,
+    this.isMovieLiked = false,
   });
   final MovieDetails? movieDetails;
-
-  get addToFavorites => null;
+  final bool isMovieLiked;
 
   MovieDetailsUIState copyWith({
     MovieDetails? movieDetails,
+    bool? isMovieLiked,
   }) =>
       MovieDetailsUIState(
         movieDetails: movieDetails ?? this.movieDetails,
+        isMovieLiked: isMovieLiked ?? this.isMovieLiked,
       );
 }

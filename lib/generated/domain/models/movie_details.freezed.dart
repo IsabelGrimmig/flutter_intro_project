@@ -267,7 +267,7 @@ class _$MovieDetailsImpl with DiagnosticableTreeMixin implements _MovieDetails {
       @JsonKey(name: 'release_date') this.releaseDate,
       @JsonKey(name: 'runtime') required this.runtime,
       @JsonKey(name: 'vote_average') required this.voteAverage,
-      @JsonKey(name: 'adult') required this.adult});
+      @JsonKey(name: 'adult') this.adult = false});
 
   factory _$MovieDetailsImpl.fromJson(Map<String, dynamic> json) =>
       _$$MovieDetailsImplFromJson(json);
@@ -402,7 +402,7 @@ abstract class _MovieDetails implements MovieDetails {
       @JsonKey(name: 'release_date') final String? releaseDate,
       @JsonKey(name: 'runtime') required final int runtime,
       @JsonKey(name: 'vote_average') required final num voteAverage,
-      @JsonKey(name: 'adult') required final bool adult}) = _$MovieDetailsImpl;
+      @JsonKey(name: 'adult') final bool adult}) = _$MovieDetailsImpl;
 
   factory _MovieDetails.fromJson(Map<String, dynamic> json) =
       _$MovieDetailsImpl.fromJson;

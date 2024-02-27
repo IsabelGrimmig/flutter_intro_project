@@ -6,6 +6,7 @@ class FavoriteButton extends StatefulWidget {
     required this.onPressedToAdd,
     required this.onPressedToRemove,
     this.isInitiallyFavorite = false,
+    required bool isMovieLiked,
   });
   final VoidCallback onPressedToAdd;
   final VoidCallback onPressedToRemove;
@@ -16,21 +17,21 @@ class FavoriteButton extends StatefulWidget {
 }
 
 class _FavoriteButtonState extends State<FavoriteButton> {
-  late bool isFavorite;
+  late bool isMovieLiked;
 
   @override
   void initState() {
     super.initState();
-    isFavorite = widget.isInitiallyFavorite;
+    isMovieLiked = widget.isInitiallyFavorite;
   }
 
   void toggleFavorite() {
     setState(
       () {
-        isFavorite = !isFavorite;
+        isMovieLiked = !isMovieLiked;
       },
     );
-    if (isFavorite) {
+    if (isMovieLiked) {
       widget.onPressedToAdd();
     } else {
       widget.onPressedToRemove();
@@ -44,9 +45,9 @@ class _FavoriteButtonState extends State<FavoriteButton> {
         foregroundColor: const Color(0xFFE9265E),
         textStyle: const TextStyle(fontSize: 20),
       ),
-      icon: Icon(isFavorite ? Icons.favorite : Icons.favorite_border),
+      icon: Icon(isMovieLiked ? Icons.favorite : Icons.favorite_border),
       onPressed: toggleFavorite,
-      label: Text(isFavorite ? 'Remove from favorites' : 'Add to favorites'),
+      label: Text(isMovieLiked ? 'Remove from favorites' : 'Add to favorites'),
     );
   }
 }

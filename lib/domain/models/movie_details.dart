@@ -19,7 +19,7 @@ class MovieDetails with _$MovieDetails {
     @JsonKey(name: 'release_date') String? releaseDate,
     @JsonKey(name: 'runtime') required int runtime,
     @JsonKey(name: 'vote_average') required num voteAverage,
-    @JsonKey(name: 'adult') required bool adult,
+    @JsonKey(name: 'adult') @Default(false) bool adult,
   }) = _MovieDetails;
 
   factory MovieDetails.fromJson(Map<String, dynamic> json) =>

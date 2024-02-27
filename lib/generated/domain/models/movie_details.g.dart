@@ -19,7 +19,7 @@ _$MovieDetailsImpl _$$MovieDetailsImplFromJson(Map<String, dynamic> json) =>
       releaseDate: json['release_date'] as String?,
       runtime: json['runtime'] as int,
       voteAverage: json['vote_average'] as num,
-      adult: json['adult'] as bool,
+      adult: json['adult'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$MovieDetailsImplToJson(_$MovieDetailsImpl instance) =>

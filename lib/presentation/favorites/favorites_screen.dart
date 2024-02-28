@@ -88,8 +88,11 @@ class _FavoritesScreenContent extends StatelessWidget {
                   height: 12,
                 ),
                 Text(
-                  'Movie popularyty: ${movie.popularity}',
+                  'Movie popularity: ${movie.popularity}',
                   style: GoogleFonts.lato(color: MontaColors.coral60),
+                ),
+                const SizedBox(
+                  height: 48,
                 ),
               ],
             ),

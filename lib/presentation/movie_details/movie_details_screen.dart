@@ -76,12 +76,8 @@ class _MovieDetailsScreenContent extends StatelessWidget {
                     ),
                     FavoriteButton(
                       isMovieLiked: viewModel.state.isMovieLiked,
-                      onPressedToAdd: () async {
-                        await viewModel.addToFavorites();
-                      },
-                      onPressedToRemove: () async {
-                        await viewModel.removeFromFavorites();
-                      },
+                      onPressed: () async =>
+                          viewModel.handleOnFavoritePressed(),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 8, right: 8),

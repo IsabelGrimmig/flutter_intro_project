@@ -7,12 +7,11 @@ import '../base_view_model.dart';
 import 'movie_details_ui_state.dart';
 
 class MovieDetailsViewModel extends BaseViewModel<MovieDetailsUIState> {
-  final int movieId;
-
   MovieDetailsViewModel({required this.movieId})
       : super(const MovieDetailsUIState()) {
     _initialize();
   }
+  final int movieId;
 
   Future<void> _initialize() async {
     final getMovieDetailsUseCase = GetMovieDetailsUseCase();
@@ -27,7 +26,7 @@ class MovieDetailsViewModel extends BaseViewModel<MovieDetailsUIState> {
     );
   }
 
-  Future<void> addToFavorites() async {
+  Future<void> _addToFavorites() async {
     if (state.movieDetails != null) {
       await getIt<LocalStorage>().addFavorite(movie: state.movieDetails!);
       setState(
@@ -36,7 +35,7 @@ class MovieDetailsViewModel extends BaseViewModel<MovieDetailsUIState> {
     }
   }
 
-  Future<void> removeFromFavorites() async {
+  Future<void> _removeFromFavorites() async {
     if (state.movieDetails != null) {
       await getIt<LocalStorage>()
           .removeFavorite(movieId: state.movieDetails!.id);
@@ -46,8 +45,11 @@ class MovieDetailsViewModel extends BaseViewModel<MovieDetailsUIState> {
     }
   }
 
-  Future<bool> isMovieLiked(int movieId) async {
-    final favorites = await getIt<LocalStorage>().getFavorites();
-    return favorites.any((movie) => movie.id == movieId);
+  Future<void> handleOnFavoritePressed() async {
+    if (state.isMovieLiked) {
+      await _removeFromFavorites();
+    } else {
+      await _addToFavorites();
+    }
   }
 }

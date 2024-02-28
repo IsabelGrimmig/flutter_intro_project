@@ -27,88 +27,115 @@ class _FavoritesScreenContent extends StatelessWidget {
     final viewModel = context.watch<FavoriteViewModel>();
     final baseImageUrl = dotenv.env['IMAGE_URL'].toString();
 
-    if (viewModel.state.favoriteMovies.isEmpty) {
-      return Center(
-        child: Text(
-          'No favorites yet......',
-          style: GoogleFonts.quicksand(
-            fontSize: 32,
-          ),
-        ),
-      );
-    }
-
-    return ListView(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(20),
-          child: Text(
-            'You have '
-            '${viewModel.state.favoriteMovies.length} favorites',
-            style: GoogleFonts.quicksand(fontSize: 24),
-          ),
-        ),
-        ...viewModel.state.favoriteMovies.map(
-          (movie) => ListTile(
-            title: Image(
-              image: NetworkImage('$baseImageUrl${movie.posterPath}'),
-            ),
-            leading: IconButton(
-              icon: Icon(
-                viewModel.state.favoriteMovies.any((m) => m.id == movie.id)
-                    ? Icons.favorite
-                    : Icons.favorite_border,
-                color: MontaColors.coral150,
+    return Scaffold(
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            expandedHeight: 250,
+            floating: false,
+            pinned: true,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text(
+                'Your Favorites',
+                style: GoogleFonts.quicksand(fontSize: 32),
               ),
-              onPressed: () async {
-                if (viewModel.state.favoriteMovies
-                    .any((m) => m.id == movie.id)) {
-                  await viewModel.removeFavorite(movie.id);
-                } else {
-                  await viewModel.addFavorite(movie);
-                }
-              },
-            ),
-            subtitle: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  movie.title ?? '',
-                  style: GoogleFonts.quicksand(
-                    fontSize: 20,
-                    color: MontaColors.coral150,
-                    fontWeight: FontWeight.bold,
+              background: Container(
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [
+                      MontaColors.coral100,
+                      MontaColors.coralBlending,
+                    ],
                   ),
                 ),
-                Text(
-                  movie.tagline ?? '',
-                  style: GoogleFonts.lato(fontSize: 18),
-                ),
-                const SizedBox(
-                  height: 12,
-                ),
-                Text(
-                  'Movie popularity: ${movie.popularity}',
-                  style: GoogleFonts.lato(color: MontaColors.coral60),
-                ),
-                const SizedBox(
-                  height: 48,
-                ),
-              ],
+              ),
             ),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => MovieDetailsScreen(
-                    id: movie.id,
-                  ),
-                ),
-              );
-            },
           ),
-        ),
-      ],
+          if (viewModel.state.favoriteMovies.isEmpty)
+            SliverFillRemaining(
+              child: Center(
+                child: Text(
+                  'No favorites yet......',
+                  style: GoogleFonts.quicksand(
+                    fontSize: 32,
+                  ),
+                ),
+              ),
+            )
+          else
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (BuildContext context, int index) {
+                  final movie = viewModel.state.favoriteMovies[index];
+                  return Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: ListTile(
+                      title: Image(
+                        image: NetworkImage('$baseImageUrl${movie.posterPath}'),
+                      ),
+                      leading: IconButton(
+                        icon: Icon(
+                          viewModel.state.favoriteMovies
+                                  .any((m) => m.id == movie.id)
+                              ? Icons.favorite
+                              : Icons.favorite_border,
+                          color: MontaColors.coral150,
+                        ),
+                        onPressed: () async {
+                          if (viewModel.state.favoriteMovies
+                              .any((m) => m.id == movie.id)) {
+                            await viewModel.removeFavorite(movie.id);
+                          } else {
+                            await viewModel.addFavorite(movie);
+                          }
+                        },
+                      ),
+                      subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            movie.title ?? '',
+                            style: GoogleFonts.quicksand(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            movie.tagline ?? '',
+                            style: GoogleFonts.lato(fontSize: 18),
+                          ),
+                          const SizedBox(
+                            height: 12,
+                          ),
+                          Text(
+                            'Movie popularity: ${movie.popularity}',
+                            style: GoogleFonts.lato(),
+                          ),
+                          const SizedBox(
+                            height: 48,
+                          ),
+                        ],
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MovieDetailsScreen(
+                              id: movie.id,
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  );
+                },
+                childCount: viewModel.state.favoriteMovies.length,
+              ),
+            ),
+        ],
+      ),
     );
   }
 }

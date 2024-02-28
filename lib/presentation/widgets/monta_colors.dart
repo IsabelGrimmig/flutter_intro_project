@@ -6,6 +6,7 @@ class MontaColors {
   static const Color coral60 = Color(0xFFFFA8A0);
   static const Color coral40 = Color(0xFFFFCAC2);
   static const Color coral20 = Color(0xFFFFE2DF);
+  static const Color coralBlending = Color(0xFFFF3162);
 
   static const Color night100 = Color(0xFF343457);
   static const Color night90 = Color(0xFF4B506B);

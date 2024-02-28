@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-import '../widgets/button.dart';
 import '../widgets/monta_colors.dart';
 import '../widgets/movie_horizontal_list_view.dart';
 import '../widgets/trending_slider.dart';
@@ -17,9 +16,6 @@ class HomeScreen extends StatelessWidget {
       create: (context) => HomeViewModel(),
       child: Scaffold(
         appBar: AppBar(
-          actions: const [
-            SizedBox(width: 50, child: SearchButton()),
-          ],
           toolbarHeight: 100,
           backgroundColor: MontaColors.coral150,
           foregroundColor: MontaColors.sand10,
@@ -27,6 +23,7 @@ class HomeScreen extends StatelessWidget {
             'M O N T A   movies',
             style: GoogleFonts.quicksand(
               fontWeight: FontWeight.bold,
+              fontSize: 32,
             ),
           ),
           centerTitle: true,

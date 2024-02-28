@@ -31,13 +31,23 @@ class _FavoritesScreenContent extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            expandedHeight: 250,
-            floating: true,
+            backgroundColor: MontaColors.coral100,
+            expandedHeight: 180,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
-              title: Text(
-                'Your Favorites',
-                style: GoogleFonts.quicksand(fontSize: 32),
+              titlePadding: EdgeInsets.zero,
+              centerTitle: true,
+              title: SizedBox(
+                height: 80,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Your Favorites',
+                      style: GoogleFonts.quicksand(fontSize: 32),
+                    ),
+                  ],
+                ),
               ),
               background: Container(
                 decoration: const BoxDecoration(
@@ -101,6 +111,7 @@ class _FavoritesScreenContent extends StatelessWidget {
                             style: GoogleFonts.quicksand(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
+                              color: MontaColors.coral150,
                             ),
                           ),
                           Text(

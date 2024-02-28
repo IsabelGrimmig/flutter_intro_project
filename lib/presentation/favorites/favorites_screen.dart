@@ -32,7 +32,7 @@ class _FavoritesScreenContent extends StatelessWidget {
         slivers: [
           SliverAppBar(
             expandedHeight: 250,
-            floating: false,
+            floating: true,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
@@ -69,8 +69,9 @@ class _FavoritesScreenContent extends StatelessWidget {
               delegate: SliverChildBuilderDelegate(
                 (BuildContext context, int index) {
                   final movie = viewModel.state.favoriteMovies[index];
+
                   return Padding(
-                    padding: const EdgeInsets.all(20),
+                    padding: const EdgeInsets.symmetric(vertical: 8),
                     child: ListTile(
                       title: Image(
                         image: NetworkImage('$baseImageUrl${movie.posterPath}'),

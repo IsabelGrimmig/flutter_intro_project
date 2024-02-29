@@ -4,6 +4,7 @@ import 'package:get_it/get_it.dart';
 import 'data/repositories/local_storage.dart';
 import 'dependencies/dependencies.dart';
 import 'presentation/root_screen.dart';
+import 'presentation/widgets/theme/theme.dart';
 
 final getIt = GetIt.instance;
 void main() async {
@@ -21,11 +22,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'M O N T A Movie',
-      theme: ThemeData(
-        appBarTheme: const AppBarTheme(foregroundColor: Colors.white),
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.pink),
-      ),
+      theme: lightMode,
+      darkTheme: darkMode,
       home: const RootScreen(),
     );
   }

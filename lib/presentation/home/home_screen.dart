@@ -17,8 +17,8 @@ class HomeScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           toolbarHeight: 100,
-          backgroundColor: MontaColors.coral150,
-          foregroundColor: MontaColors.sand10,
+          backgroundColor: Theme.of(context).colorScheme.primary,
+          foregroundColor: Theme.of(context).colorScheme.secondary,
           title: Text(
             'M O N T A   movies',
             style: GoogleFonts.quicksand(
@@ -41,7 +41,7 @@ class HomeScreen extends StatelessWidget {
                       'Trending movies',
                       style: TextStyle(
                         color: MontaColors.coral100,
-                        fontSize: 24,
+                        fontSize: 32,
                       ),
                     ),
                   ),
@@ -63,7 +63,7 @@ class HomeScreen extends StatelessWidget {
                       'Top rated movies',
                       style: TextStyle(
                         color: MontaColors.coral100,
-                        fontSize: 24,
+                        fontSize: 28,
                       ),
                     ),
                   ),
@@ -81,7 +81,7 @@ class HomeScreen extends StatelessWidget {
                       'Up-coming movies',
                       style: TextStyle(
                         color: MontaColors.coral100,
-                        fontSize: 25,
+                        fontSize: 28,
                       ),
                     ),
                   ),
